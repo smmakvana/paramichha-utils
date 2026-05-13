@@ -2,24 +2,6 @@ package com.paramichha.utils;
 
 import java.util.Collection;
 
-/**
- * Input validation guards — throw immediately on bad input.
- *
- * <p>Use at the top of public methods and constructors to fail fast
- * with a clear, consistent message. No business logic — pure structural checks.
- *
- * <pre>
- * public void setName(String name) {
- *     Guard.notBlank(name, "name");
- *     this.name = name;
- * }
- *
- * public DataBuilder(Class<?> type, int count) {
- *     Guard.notNull(type, "type");
- *     Guard.positive(count, "count");
- * }
- * </pre>
- */
 public final class Guard {
 
     private Guard() {}
