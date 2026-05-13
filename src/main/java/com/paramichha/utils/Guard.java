@@ -2,24 +2,21 @@ package com.paramichha.utils;
 
 import java.util.Collection;
 
+/**
+ * Input validation guards for conditions Java does not cover natively.
+ *
+ * <p>For null checks use {@link java.util.Objects#requireNonNull} directly.
+ * Everything else belongs here.
+ *
+ * <pre>
+ * Objects.requireNonNull(type, "type");    // null  — use Java
+ * Guard.notBlank(name, "name");            // blank — use Guard
+ * Guard.positive(count, "count");          // numeric — use Guard
+ * </pre>
+ */
 public final class Guard {
 
     private Guard() {}
-
-    // =========================================================================
-    // Null checks
-    // =========================================================================
-
-    /**
-     * Throws {@link IllegalArgumentException} if value is null.
-     *
-     * @return the value — allows inline use: {@code this.x = Guard.notNull(x, "x")}
-     */
-    public static <T> T notNull(T value, String name) {
-        if (value == null)
-            throw new IllegalArgumentException(name + " must not be null");
-        return value;
-    }
 
     // =========================================================================
     // String checks
@@ -27,8 +24,7 @@ public final class Guard {
 
     /**
      * Throws if value is null or blank (whitespace only).
-     *
-     * @return the value trimmed
+     * @return the trimmed value
      */
     public static String notBlank(String value, String name) {
         if (value == null || value.isBlank())
@@ -38,7 +34,6 @@ public final class Guard {
 
     /**
      * Throws if value is null or empty (length zero, whitespace allowed).
-     *
      * @return the value
      */
     public static String notEmpty(String value, String name) {
@@ -53,7 +48,6 @@ public final class Guard {
 
     /**
      * Throws if collection is null or empty.
-     *
      * @return the collection
      */
     public static <T extends Collection<?>> T notEmpty(T value, String name) {
@@ -68,7 +62,6 @@ public final class Guard {
 
     /**
      * Throws if value is zero or negative.
-     *
      * @return the value
      */
     public static int positive(int value, String name) {
@@ -79,7 +72,6 @@ public final class Guard {
 
     /**
      * Throws if value is zero or negative.
-     *
      * @return the value
      */
     public static long positive(long value, String name) {
@@ -90,7 +82,6 @@ public final class Guard {
 
     /**
      * Throws if value is negative.
-     *
      * @return the value
      */
     public static int notNegative(int value, String name) {
@@ -101,10 +92,20 @@ public final class Guard {
 
     /**
      * Throws if value is outside [min, max] inclusive.
-     *
      * @return the value
      */
     public static int inRange(int value, int min, int max, String name) {
+        if (value < min || value > max)
+            throw new IllegalArgumentException(
+                    name + " must be between " + min + " and " + max + ", got: " + value);
+        return value;
+    }
+
+    /**
+     * Throws if value is outside [min, max] inclusive.
+     * @return the value
+     */
+    public static long inRange(long value, long min, long max, String name) {
         if (value < min || value > max)
             throw new IllegalArgumentException(
                     name + " must be between " + min + " and " + max + ", got: " + value);
@@ -117,7 +118,6 @@ public final class Guard {
 
     /**
      * Throws {@link IllegalStateException} if condition is false.
-     * Use for invariant checks, not input validation.
      */
     public static void state(boolean condition, String message) {
         if (!condition)
@@ -131,4 +131,8 @@ public final class Guard {
         if (!condition)
             throw new IllegalArgumentException(message);
     }
+
+    // =========================================================================
+    // Future: date checks, etc.
+    // =========================================================================
 }
