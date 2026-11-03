@@ -16,7 +16,7 @@ token templates, argument guards and Jakarta-style value checks.
 </dependency>
 ```
 
-Requires Java 21. **No runtime dependencies.**
+Requires Java 21 or later. **No runtime dependencies.**
 
 ---
 
@@ -55,7 +55,7 @@ DataValidation.min(1, quantity);
 
 ## Features
 
-- **Zero dependencies** — plain Java 21.
+- **Zero dependencies** — plain Java, Java 21 or later.
 - **Deterministic** — `Seeds.stableHash` uses a fixed algorithm (not `String.hashCode()` salting or
   `Object.hashCode()`), so seeds are the same across runs, JVMs and machines. Its values are frozen by tests:
   DataFactory and TestKit output depends on them.
