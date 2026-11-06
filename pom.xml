@@ -31,9 +31,9 @@
     </scm>
 
     <properties>
-        <!-- Line-coverage floor checked by `mvn verify` (rule in paramichha-dev). Set just below
-             current coverage (16.7%); raise it as tests are added, never lower it. -->
-        <jacoco.line.minimum>0.16</jacoco.line.minimum>
+        <!-- Line-coverage floor checked by `mvn verify` (rule in paramichha-dev). Every line and
+             branch is covered; keep it at 1.00: new code comes with its tests. -->
+        <jacoco.line.minimum>1.00</jacoco.line.minimum>
     </properties>
 
     <dependencies>
