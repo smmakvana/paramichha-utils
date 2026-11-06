@@ -5,7 +5,6 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -108,14 +107,14 @@ public final class Boundary {
 
         public List<String> invalid() {
             return switch (type) {
-                case NOT_BLANK -> withNull("", " ", "   ", "\t", "\n");
-                case NOT_EMPTY -> withNull("");
+                case NOT_BLANK -> withNull(List.of("", " ", "   ", "\t", "\n"));
+                case NOT_EMPTY -> withNull(List.of(""));
                 case SIZE -> min > 0
-                        ? withNull("a".repeat(min - 1), "a".repeat(max + 1))
-                        : withNull("a".repeat(max + 1));
-                case EMAIL -> withNull("", "notanemail", "@nodomain", "no@", "a@b");
-                case URL -> withNull("", "notaurl", "ftp://", "://missing");
-                case PATTERN -> withNull("");
+                        ? withNull(List.of("a".repeat(min - 1), "a".repeat(max + 1)))
+                        : withNull(List.of("a".repeat(max + 1)));
+                case EMAIL -> withNull(List.of("", "notanemail", "@nodomain", "no@", "a@b"));
+                case URL -> withNull(List.of("", "notaurl", "ftp://", "://missing"));
+                case PATTERN -> withNull(List.of(""));
             };
         }
 
@@ -336,12 +335,12 @@ public final class Boundary {
 
         public List<BigDecimal> invalid() {
             return switch (decType) {
-                case MIN -> withNull(min.subtract(new BigDecimal("0.01")), min.subtract(BigDecimal.ONE));
-                case MAX -> withNull(max.add(new BigDecimal("0.01")), max.add(BigDecimal.ONE));
-                case RANGE -> withNull(min.subtract(new BigDecimal("0.01")), max.add(new BigDecimal("0.01")));
-                case POSITIVE -> withNull(BigDecimal.ZERO, new BigDecimal("-0.01"));
-                case DIGITS -> withNull(new BigDecimal("9".repeat(integerDigits + 1)),
-                        new BigDecimal("0." + "9".repeat(fractionDigits + 1)));
+                case MIN -> withNull(List.of(min.subtract(new BigDecimal("0.01")), min.subtract(BigDecimal.ONE)));
+                case MAX -> withNull(List.of(max.add(new BigDecimal("0.01")), max.add(BigDecimal.ONE)));
+                case RANGE -> withNull(List.of(min.subtract(new BigDecimal("0.01")), max.add(new BigDecimal("0.01"))));
+                case POSITIVE -> withNull(List.of(BigDecimal.ZERO, new BigDecimal("-0.01")));
+                case DIGITS -> withNull(List.of(new BigDecimal("9".repeat(integerDigits + 1)),
+                        new BigDecimal("0." + "9".repeat(fractionDigits + 1))));
             };
         }
 
@@ -467,7 +466,7 @@ public final class Boundary {
         }
 
         public List<Boolean> invalid() {
-            return withNull(!expected);
+            return withNull(List.of(!expected));
         }
     }
 
@@ -475,11 +474,10 @@ public final class Boundary {
      * {@code null} followed by the given values, as an unmodifiable list. {@code List.of} rejects
      * null elements, and null is the first invalid value for every constraint here.
      */
-    @SafeVarargs
-    private static <T> List<T> withNull(T... values) {
-        List<T> list = new ArrayList<>(values.length + 1);
+    private static <T> List<T> withNull(List<T> values) {
+        List<T> list = new ArrayList<>(values.size() + 1);
         list.add(null);
-        list.addAll(Arrays.asList(values));
+        list.addAll(values);
         return Collections.unmodifiableList(list);
     }
 
