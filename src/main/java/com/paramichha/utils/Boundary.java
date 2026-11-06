@@ -4,6 +4,9 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -100,22 +103,19 @@ public final class Boundary {
                 case EMAIL -> List.of("user@example.com", "test.user+tag@domain.co.uk");
                 case URL -> List.of("https://example.com", "http://test.org/path?q=1");
                 case PATTERN -> List.of(); // cannot generate without knowing the regexp semantics
-                default -> List.of();
             };
         }
 
         public List<String> invalid() {
             return switch (type) {
-                case NOT_BLANK -> List.of(null, "", " ", "   ", "\t", "\n");
-                case NOT_EMPTY -> List.of(null, "");
-                case SIZE -> List.of(
-                        null,
-                        min > 0 ? "a".repeat(min - 1) : "",
-                        "a".repeat(max + 1));
-                case EMAIL -> List.of(null, "", "notanemail", "@nodomain", "no@", "a@b");
-                case URL -> List.of(null, "", "notaurl", "ftp://", "://missing");
-                case PATTERN -> List.of(null, "");
-                default -> List.of();
+                case NOT_BLANK -> withNull("", " ", "   ", "\t", "\n");
+                case NOT_EMPTY -> withNull("");
+                case SIZE -> min > 0
+                        ? withNull("a".repeat(min - 1), "a".repeat(max + 1))
+                        : withNull("a".repeat(max + 1));
+                case EMAIL -> withNull("", "notanemail", "@nodomain", "no@", "a@b");
+                case URL -> withNull("", "notaurl", "ftp://", "://missing");
+                case PATTERN -> withNull("");
             };
         }
 
@@ -336,13 +336,11 @@ public final class Boundary {
 
         public List<BigDecimal> invalid() {
             return switch (decType) {
-                case MIN -> List.of(null, min.subtract(new BigDecimal("0.01")), min.subtract(BigDecimal.ONE));
-                case MAX -> List.of(null, max.add(new BigDecimal("0.01")), max.add(BigDecimal.ONE));
-                case RANGE -> List.of(null, min.subtract(new BigDecimal("0.01")), max.add(new BigDecimal("0.01")));
-                case POSITIVE -> List.of(null, BigDecimal.ZERO, new BigDecimal("-0.01"));
-                case DIGITS -> List.of(
-                        null,
-                        new BigDecimal("9".repeat(integerDigits + 1)),
+                case MIN -> withNull(min.subtract(new BigDecimal("0.01")), min.subtract(BigDecimal.ONE));
+                case MAX -> withNull(max.add(new BigDecimal("0.01")), max.add(BigDecimal.ONE));
+                case RANGE -> withNull(min.subtract(new BigDecimal("0.01")), max.add(new BigDecimal("0.01")));
+                case POSITIVE -> withNull(BigDecimal.ZERO, new BigDecimal("-0.01"));
+                case DIGITS -> withNull(new BigDecimal("9".repeat(integerDigits + 1)),
                         new BigDecimal("0." + "9".repeat(fractionDigits + 1)));
             };
         }
@@ -469,8 +467,20 @@ public final class Boundary {
         }
 
         public List<Boolean> invalid() {
-            return List.of(null, !expected);
+            return withNull(!expected);
         }
+    }
+
+    /**
+     * {@code null} followed by the given values, as an unmodifiable list. {@code List.of} rejects
+     * null elements, and null is the first invalid value for every constraint here.
+     */
+    @SafeVarargs
+    private static <T> List<T> withNull(T... values) {
+        List<T> list = new ArrayList<>(values.length + 1);
+        list.add(null);
+        list.addAll(Arrays.asList(values));
+        return Collections.unmodifiableList(list);
     }
 
     // =========================================================================
