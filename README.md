@@ -1,10 +1,8 @@
 # paramichha-utils
 
-Small, dependency-free Java utilities shared by [DataFactory](https://github.com/smmakvana/paramichha-datafactory)
-and [TestKit](https://github.com/smmakvana/paramichha-testkit): deterministic seeds, naming, type inspection,
-token templates, argument guards and Jakarta-style value checks.
+[![Java 21+](https://img.shields.io/badge/Java-21%2B-blue)](https://openjdk.org/) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-green)](LICENSE)
 
----
+Dependency-free Java utilities shared by DataFactory and TestKit: deterministic seeds, naming, type inspection, token templates and argument guards.
 
 ## The Paramichha libraries
 
@@ -93,6 +91,10 @@ DataValidation.min(1, quantity);
   Jakarta Validation implementation; custom constraints, groups and cross-field rules aren't supported.
 
 ---
+
+## Contributing
+
+Open an issue to discuss a change, then send a pull request. Run `mvn test` before you submit.
 
 ## License
 
