@@ -32,7 +32,8 @@ class TokensTest {
     }
 
     static Stream<Arguments> validResolveInputs() {
-      return Stream.of(Arguments.of("valid resolve", (String) null, (Map) null));
+      return Stream.of(
+          Arguments.of("valid resolve", "Hi {name}", Map.ofEntries(Map.entry("name", "x"))));
     }
   }
 
@@ -51,7 +52,7 @@ class TokensTest {
     }
 
     static Stream<Arguments> validResolveInputs() {
-      return Stream.of(Arguments.of("valid resolve", (String) null, (String[]) null));
+      return Stream.of(Arguments.of("valid resolve", "Hi {name}", new String[] {"name", "x"}));
     }
   }
 }

@@ -31,7 +31,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validBoxInputs() {
-      return Stream.of(Arguments.of("valid box", (Class) null));
+      return Stream.of(Arguments.of("valid box", int.class));
     }
   }
 
@@ -50,7 +50,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validBoxedSourceNameInputs() {
-      return Stream.of(Arguments.of("valid boxedSourceName", (Class) null));
+      return Stream.of(Arguments.of("valid boxedSourceName", String.class));
     }
   }
 
@@ -68,7 +68,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsAbstractInputs() {
-      return Stream.of(Arguments.of("valid isAbstract", (Class) null));
+      return Stream.of(Arguments.of("valid isAbstract", String.class));
     }
   }
 
@@ -86,7 +86,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsArrayInputs() {
-      return Stream.of(Arguments.of("valid isArray", (Class) null));
+      return Stream.of(Arguments.of("valid isArray", String.class));
     }
   }
 
@@ -104,7 +104,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsBooleanInputs() {
-      return Stream.of(Arguments.of("valid isBoolean", (Class) null));
+      return Stream.of(Arguments.of("valid isBoolean", String.class));
     }
   }
 
@@ -122,7 +122,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsCollectionInputs() {
-      return Stream.of(Arguments.of("valid isCollection", (Class) null));
+      return Stream.of(Arguments.of("valid isCollection", String.class));
     }
   }
 
@@ -140,7 +140,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsDomainTypeInputs() {
-      return Stream.of(Arguments.of("valid isDomainType", (Class) null));
+      return Stream.of(Arguments.of("valid isDomainType", String.class));
     }
   }
 
@@ -158,7 +158,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsEnumInputs() {
-      return Stream.of(Arguments.of("valid isEnum", (Class) null));
+      return Stream.of(Arguments.of("valid isEnum", String.class));
     }
   }
 
@@ -176,7 +176,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsInterfaceInputs() {
-      return Stream.of(Arguments.of("valid isInterface", (Class) null));
+      return Stream.of(Arguments.of("valid isInterface", String.class));
     }
   }
 
@@ -194,7 +194,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsJavaTypeInputs() {
-      return Stream.of(Arguments.of("valid isJavaType", (Class) null));
+      return Stream.of(Arguments.of("valid isJavaType", String.class));
     }
   }
 
@@ -212,7 +212,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsListInputs() {
-      return Stream.of(Arguments.of("valid isList", (Class) null));
+      return Stream.of(Arguments.of("valid isList", String.class));
     }
   }
 
@@ -230,7 +230,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsMapInputs() {
-      return Stream.of(Arguments.of("valid isMap", (Class) null));
+      return Stream.of(Arguments.of("valid isMap", String.class));
     }
   }
 
@@ -248,7 +248,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsNumericInputs() {
-      return Stream.of(Arguments.of("valid isNumeric", (Class) null));
+      return Stream.of(Arguments.of("valid isNumeric", String.class));
     }
   }
 
@@ -266,7 +266,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsOptionalInputs() {
-      return Stream.of(Arguments.of("valid isOptional", (Class) null));
+      return Stream.of(Arguments.of("valid isOptional", String.class));
     }
   }
 
@@ -284,7 +284,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsPrimitiveInputs() {
-      return Stream.of(Arguments.of("valid isPrimitive", (Class) null));
+      return Stream.of(Arguments.of("valid isPrimitive", String.class));
     }
   }
 
@@ -302,7 +302,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsPrimitiveOrWrapperInputs() {
-      return Stream.of(Arguments.of("valid isPrimitiveOrWrapper", (Class) null));
+      return Stream.of(Arguments.of("valid isPrimitiveOrWrapper", String.class));
     }
   }
 
@@ -320,7 +320,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsQueueInputs() {
-      return Stream.of(Arguments.of("valid isQueue", (Class) null));
+      return Stream.of(Arguments.of("valid isQueue", String.class));
     }
   }
 
@@ -338,7 +338,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsRecordInputs() {
-      return Stream.of(Arguments.of("valid isRecord", (Class) null));
+      return Stream.of(Arguments.of("valid isRecord", String.class));
     }
   }
 
@@ -356,7 +356,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsSetInputs() {
-      return Stream.of(Arguments.of("valid isSet", (Class) null));
+      return Stream.of(Arguments.of("valid isSet", String.class));
     }
   }
 
@@ -374,7 +374,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsStringInputs() {
-      return Stream.of(Arguments.of("valid isString", (Class) null));
+      return Stream.of(Arguments.of("valid isString", String.class));
     }
   }
 
@@ -392,7 +392,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsTemporalInputs() {
-      return Stream.of(Arguments.of("valid isTemporal", (Class) null));
+      return Stream.of(Arguments.of("valid isTemporal", String.class));
     }
   }
 
@@ -410,7 +410,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validIsWrapperInputs() {
-      return Stream.of(Arguments.of("valid isWrapper", (Class) null));
+      return Stream.of(Arguments.of("valid isWrapper", String.class));
     }
   }
 
@@ -429,7 +429,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validSourceNameInputs() {
-      return Stream.of(Arguments.of("valid sourceName", (Class) null));
+      return Stream.of(Arguments.of("valid sourceName", String.class));
     }
   }
 
@@ -448,7 +448,7 @@ class JavaTypesTest {
     }
 
     static Stream<Arguments> validUnboxInputs() {
-      return Stream.of(Arguments.of("valid unbox", (Class) null));
+      return Stream.of(Arguments.of("valid unbox", int.class));
     }
   }
 }

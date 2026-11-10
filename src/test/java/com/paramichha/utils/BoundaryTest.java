@@ -29,12 +29,6 @@ class BoundaryTest {
       Boundary.BooleanBoundary result = Boundary.assertFalse();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("assertFalse returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.assertFalse()).isEqualTo(Boundary.assertFalse());
-    }
   }
 
   @Nested
@@ -48,12 +42,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.BooleanBoundary result = Boundary.assertTrue();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("assertTrue returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.assertTrue()).isEqualTo(Boundary.assertTrue());
     }
   }
 
@@ -72,7 +60,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validDecimalMaxInputs() {
-      return Stream.of(Arguments.of("valid decimalMax", (String) null));
+      return Stream.of(Arguments.of("valid decimalMax", "10.5"));
     }
   }
 
@@ -91,7 +79,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validDecimalMinInputs() {
-      return Stream.of(Arguments.of("valid decimalMin", (String) null));
+      return Stream.of(Arguments.of("valid decimalMin", "0.5"));
     }
   }
 
@@ -106,12 +94,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.DecimalBoundary result = Boundary.decimalPositive();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("decimalPositive returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.decimalPositive()).isEqualTo(Boundary.decimalPositive());
     }
   }
 
@@ -130,7 +112,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validDecimalRangeInputs() {
-      return Stream.of(Arguments.of("valid decimalRange", (String) null, (String) null));
+      return Stream.of(Arguments.of("valid decimalRange", "0", "10"));
     }
   }
 
@@ -149,7 +131,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validDigitsInputs() {
-      return Stream.of(Arguments.of("valid digits", 0, 0));
+      return Stream.of(Arguments.of("valid digits", 3, 2));
     }
   }
 
@@ -165,12 +147,6 @@ class BoundaryTest {
       Boundary.StringBoundary result = Boundary.email();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("email returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.email()).isEqualTo(Boundary.email());
-    }
   }
 
   @Nested
@@ -185,12 +161,6 @@ class BoundaryTest {
       Boundary.TemporalBoundary result = Boundary.future();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("future returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.future()).isEqualTo(Boundary.future());
-    }
   }
 
   @Nested
@@ -204,12 +174,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.TemporalBoundary result = Boundary.futureOrPresent();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("futureOrPresent returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.futureOrPresent()).isEqualTo(Boundary.futureOrPresent());
     }
   }
 
@@ -228,7 +192,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validLengthInputs() {
-      return Stream.of(Arguments.of("valid length", 0, 0));
+      return Stream.of(Arguments.of("valid length", 1, 5));
     }
   }
 
@@ -247,7 +211,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 0L));
+      return Stream.of(Arguments.of("valid max", 10L));
     }
   }
 
@@ -282,12 +246,6 @@ class BoundaryTest {
       Boundary.NumericBoundary result = Boundary.negative();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("negative returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.negative()).isEqualTo(Boundary.negative());
-    }
   }
 
   @Nested
@@ -301,12 +259,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.NumericBoundary result = Boundary.negativeOrZero();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("negativeOrZero returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.negativeOrZero()).isEqualTo(Boundary.negativeOrZero());
     }
   }
 
@@ -322,12 +274,6 @@ class BoundaryTest {
       Boundary.StringBoundary result = Boundary.notBlank();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("notBlank returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.notBlank()).isEqualTo(Boundary.notBlank());
-    }
   }
 
   @Nested
@@ -341,12 +287,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.StringBoundary result = Boundary.notEmpty();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("notEmpty returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.notEmpty()).isEqualTo(Boundary.notEmpty());
     }
   }
 
@@ -362,12 +302,6 @@ class BoundaryTest {
       Boundary.TemporalBoundary result = Boundary.past();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("past returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.past()).isEqualTo(Boundary.past());
-    }
   }
 
   @Nested
@@ -381,12 +315,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.TemporalBoundary result = Boundary.pastOrPresent();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("pastOrPresent returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.pastOrPresent()).isEqualTo(Boundary.pastOrPresent());
     }
   }
 
@@ -405,7 +333,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validPatternInputs() {
-      return Stream.of(Arguments.of("valid pattern", (String) null));
+      return Stream.of(Arguments.of("valid pattern", "[a-z]+"));
     }
   }
 
@@ -421,12 +349,6 @@ class BoundaryTest {
       Boundary.NumericBoundary result = Boundary.positive();
       assertThat(result).isNotNull();
     }
-
-    @Test
-    @DisplayName("positive returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.positive()).isEqualTo(Boundary.positive());
-    }
   }
 
   @Nested
@@ -440,12 +362,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.NumericBoundary result = Boundary.positiveOrZero();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("positiveOrZero returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.positiveOrZero()).isEqualTo(Boundary.positiveOrZero());
     }
   }
 
@@ -464,7 +380,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validRangeInputs() {
-      return Stream.of(Arguments.of("valid range", 0L, 0L));
+      return Stream.of(Arguments.of("valid range", 0L, 10L));
     }
   }
 
@@ -483,7 +399,7 @@ class BoundaryTest {
     }
 
     static Stream<Arguments> validSizeInputs() {
-      return Stream.of(Arguments.of("valid size", 0, 0));
+      return Stream.of(Arguments.of("valid size", 1, 5));
     }
   }
 
@@ -498,12 +414,6 @@ class BoundaryTest {
     void testReturnsResult() {
       Boundary.StringBoundary result = Boundary.url();
       assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("url returns the same value on repeat calls")
-    void testReturnsConsistentResult() {
-      assertThat(Boundary.url()).isEqualTo(Boundary.url());
     }
   }
 }

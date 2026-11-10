@@ -32,7 +32,7 @@ class SeedsTest {
     }
 
     static Stream<Arguments> validRandomInputs() {
-      return Stream.of(Arguments.of("valid random", 0L));
+      return Stream.of(Arguments.of("valid random", 1L));
     }
   }
 
@@ -50,7 +50,7 @@ class SeedsTest {
     }
 
     static Stream<Arguments> validStableHashInputs() {
-      return Stream.of(Arguments.of("valid stableHash", (String) null));
+      return Stream.of(Arguments.of("valid stableHash", "x"));
     }
   }
 
@@ -68,7 +68,7 @@ class SeedsTest {
     }
 
     static Stream<Arguments> validStableHashInputs() {
-      return Stream.of(Arguments.of("valid stableHash", (String[]) null));
+      return Stream.of(Arguments.of("valid stableHash", new String[] {"x"}));
     }
   }
 
@@ -86,7 +86,7 @@ class SeedsTest {
     }
 
     static Stream<Arguments> validStableHashInputs() {
-      return Stream.of(Arguments.of("valid stableHash", (Class) null));
+      return Stream.of(Arguments.of("valid stableHash", String.class));
     }
   }
 }

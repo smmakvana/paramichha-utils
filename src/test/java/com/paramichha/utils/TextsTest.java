@@ -31,7 +31,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validCamelCaseInputs() {
-      return Stream.of(Arguments.of("valid camelCase", (String) null));
+      return Stream.of(Arguments.of("valid camelCase", "hello world"));
     }
   }
 
@@ -50,7 +50,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validCapitalizeInputs() {
-      return Stream.of(Arguments.of("valid capitalize", (String) null));
+      return Stream.of(Arguments.of("valid capitalize", "abc"));
     }
   }
 
@@ -68,7 +68,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validContainsIgnoreCaseInputs() {
-      return Stream.of(Arguments.of("valid containsIgnoreCase", (String) null, (String) null));
+      return Stream.of(Arguments.of("valid containsIgnoreCase", "Hello", "ell"));
     }
   }
 
@@ -87,7 +87,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validDecapitalizeInputs() {
-      return Stream.of(Arguments.of("valid decapitalize", (String) null));
+      return Stream.of(Arguments.of("valid decapitalize", "ABC"));
     }
   }
 
@@ -106,7 +106,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validEmptyToNullInputs() {
-      return Stream.of(Arguments.of("valid emptyToNull", (String) null));
+      return Stream.of(Arguments.of("valid emptyToNull", "a"));
     }
   }
 
@@ -124,7 +124,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validEqualsIgnoreCaseTrimmedInputs() {
-      return Stream.of(Arguments.of("valid equalsIgnoreCaseTrimmed", (String) null, (String) null));
+      return Stream.of(Arguments.of("valid equalsIgnoreCaseTrimmed", "a", "A"));
     }
   }
 
@@ -142,7 +142,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validIsBlankInputs() {
-      return Stream.of(Arguments.of("valid isBlank", (String) null));
+      return Stream.of(Arguments.of("valid isBlank", " "));
     }
   }
 
@@ -160,7 +160,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validIsNotBlankInputs() {
-      return Stream.of(Arguments.of("valid isNotBlank", (String) null));
+      return Stream.of(Arguments.of("valid isNotBlank", "a"));
     }
   }
 
@@ -179,7 +179,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validKebabCaseInputs() {
-      return Stream.of(Arguments.of("valid kebabCase", (String) null));
+      return Stream.of(Arguments.of("valid kebabCase", "helloWorld"));
     }
   }
 
@@ -198,7 +198,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validNormalizeInputs() {
-      return Stream.of(Arguments.of("valid normalize", (String) null));
+      return Stream.of(Arguments.of("valid normalize", " Hello  World "));
     }
   }
 
@@ -217,7 +217,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validNullToEmptyInputs() {
-      return Stream.of(Arguments.of("valid nullToEmpty", (String) null));
+      return Stream.of(Arguments.of("valid nullToEmpty", "a"));
     }
   }
 
@@ -236,7 +236,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validPascalCaseInputs() {
-      return Stream.of(Arguments.of("valid pascalCase", (String) null));
+      return Stream.of(Arguments.of("valid pascalCase", "hello world"));
     }
   }
 
@@ -255,7 +255,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validSafeTrimInputs() {
-      return Stream.of(Arguments.of("valid safeTrim", (String) null));
+      return Stream.of(Arguments.of("valid safeTrim", " a "));
     }
   }
 
@@ -274,7 +274,7 @@ class TextsTest {
     }
 
     static Stream<Arguments> validSnakeCaseInputs() {
-      return Stream.of(Arguments.of("valid snakeCase", (String) null));
+      return Stream.of(Arguments.of("valid snakeCase", "helloWorld"));
     }
   }
 }
