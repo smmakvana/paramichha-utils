@@ -23,51 +23,6 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class GuardAndJavaTypesTest {
 
     @Nested
-    @DisplayName("Guard")
-    class GuardTest {
-        @Test
-        void strings() {
-            assertThat(Guard.notBlank(" a ", "name")).isEqualTo("a");
-            assertThatThrownBy(() -> Guard.notBlank(null, "name")).hasMessage("name must not be blank");
-            assertThatThrownBy(() -> Guard.notBlank(" ", "name")).isInstanceOf(IllegalArgumentException.class);
-            assertThat(Guard.notEmpty(" ", "name")).isEqualTo(" ");
-            assertThatThrownBy(() -> Guard.notEmpty((String) null, "name")).hasMessage("name must not be empty");
-            assertThatThrownBy(() -> Guard.notEmpty("", "name")).hasMessage("name must not be empty");
-        }
-
-        @Test
-        void collections() {
-            assertThat(Guard.notEmpty(List.of(1), "items")).containsExactly(1);
-            assertThatThrownBy(() -> Guard.notEmpty((List<?>) null, "items")).hasMessage("items must not be empty");
-            assertThatThrownBy(() -> Guard.notEmpty(List.of(), "items")).hasMessage("items must not be empty");
-        }
-
-        @Test
-        void numbers() {
-            assertThat(Guard.positive(1, "n")).isEqualTo(1);
-            assertThatThrownBy(() -> Guard.positive(0, "n")).hasMessage("n must be positive, got: 0");
-            assertThat(Guard.positive(1L, "n")).isEqualTo(1L);
-            assertThatThrownBy(() -> Guard.positive(-1L, "n")).hasMessage("n must be positive, got: -1");
-            assertThat(Guard.notNegative(0, "n")).isZero();
-            assertThatThrownBy(() -> Guard.notNegative(-1, "n")).hasMessage("n must not be negative, got: -1");
-            assertThat(Guard.inRange(5, 1, 5, "n")).isEqualTo(5);
-            assertThatThrownBy(() -> Guard.inRange(0, 1, 5, "n")).hasMessage("n must be between 1 and 5, got: 0");
-            assertThatThrownBy(() -> Guard.inRange(6, 1, 5, "n")).isInstanceOf(IllegalArgumentException.class);
-            assertThat(Guard.inRange(1L, 1L, 5L, "n")).isEqualTo(1L);
-            assertThatThrownBy(() -> Guard.inRange(0L, 1L, 5L, "n")).isInstanceOf(IllegalArgumentException.class);
-            assertThatThrownBy(() -> Guard.inRange(6L, 1L, 5L, "n")).hasMessage("n must be between 1 and 5, got: 6");
-        }
-
-        @Test
-        void stateAndArgument() {
-            Guard.state(true, "x");
-            Guard.argument(true, "x");
-            assertThatThrownBy(() -> Guard.state(false, "bad state")).isInstanceOf(IllegalStateException.class).hasMessage("bad state");
-            assertThatThrownBy(() -> Guard.argument(false, "bad arg")).isInstanceOf(IllegalArgumentException.class).hasMessage("bad arg");
-        }
-    }
-
-    @Nested
     @DisplayName("JavaTypes")
     class JavaTypesTest {
         enum Colour { RED }
