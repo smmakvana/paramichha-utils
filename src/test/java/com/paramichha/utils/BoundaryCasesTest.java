@@ -4,6 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.DynamicTest;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -145,5 +147,88 @@ class BoundaryCasesTest {
         return Stream.of(DynamicTest.dynamicTest("invalid list", () ->
                 assertThatThrownBy(() -> Boundary.notBlank().invalid().add("x"))
                         .isInstanceOf(UnsupportedOperationException.class)));
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("one numeric boundary gives the same values for every numeric type")
+    void everyNumericTypeHasTheSameValues() {
+        Boundary.NumericBoundary b = Boundary.range(1, 9);
+        assertThat(b.validIntegers()).containsExactly(1, 5, 9);
+        assertThat(b.validDoubles()).containsExactly(1d, 5d, 9d);
+        assertThat(b.validFloats()).containsExactly(1f, 5f, 9f);
+        assertThat(b.validShorts()).containsExactly((short) 1, (short) 5, (short) 9);
+        assertThat(b.validBytes()).containsExactly((byte) 1, (byte) 5, (byte) 9);
+        assertThat(b.invalidIntegers()).containsExactly(0, 10);
+        assertThat(b.invalidDoubles()).containsExactly(0d, 10d);
+        assertThat(b.invalidFloats()).containsExactly(0f, 10f);
+        assertThat(b.invalidShorts()).containsExactly((short) 0, (short) 10);
+        assertThat(b.invalidBytes()).containsExactly((byte) 0, (byte) 10);
+        assertThat(b.edgeIntegers()).containsExactly(1, 2, 8, 9);
+        assertThat(b.edgeDoubles()).containsExactly(1d, 2d, 8d, 9d);
+        assertThat(b.edgeFloats()).containsExactly(1f, 2f, 8f, 9f);
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("min, max and range give their valid, invalid and edge values")
+    void numericEdges() {
+        assertThat(Boundary.min(5).edgeLongs()).containsExactly(5L, 6L);
+        assertThat(Boundary.max(5).edgeLongs()).containsExactly(4L, 5L);
+        assertThat(Boundary.range(1, 9).edgeLongs()).containsExactly(1L, 2L, 8L, 9L);
+        assertThat(Boundary.range(1, 9).validLongs()).containsExactly(1L, 5L, 9L);
+        assertThat(Boundary.positive().edgeLongs()).isEqualTo(Boundary.positive().validLongs());
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("a pattern offers no valid values it can build, and no edges")
+    void patternOffersNoGeneratedValues() {
+        assertThat(Boundary.pattern("[a-z]+").valid()).isEmpty();
+        assertThat(Boundary.pattern("[a-z]+").edge()).isEmpty();
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("the boolean and email boundaries have no edge values")
+    void noEdgesForBooleansAndEmail() {
+        assertThat(Boundary.email().edge()).isEmpty();
+        assertThat(Boundary.notEmpty().edge()).isEmpty();
+        assertThat(Boundary.assertTrue().invalid()).containsExactly(null, false);
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("decimal boundaries give edge values just inside each bound")
+    void decimalEdges() {
+        assertThat(Boundary.decimalMin("1.5").edge()).containsExactly(new java.math.BigDecimal("1.5"),
+                new java.math.BigDecimal("1.51"));
+        assertThat(Boundary.decimalMax("1.5").edge()).containsExactly(new java.math.BigDecimal("1.49"),
+                new java.math.BigDecimal("1.5"));
+        assertThat(Boundary.decimalRange("1", "2").edge()).hasSize(4);
+        assertThat(Boundary.decimalPositive().edge()).isEqualTo(Boundary.decimalPositive().valid());
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("pastOrPresent invalid values are after now, futureOrPresent invalid values are before now")
+    void presentEdges() {
+        assertThat(Boundary.pastOrPresent().invalidDateTimes()).isNotEmpty()
+                .allSatisfy(d -> assertThat(d).isAfter(LocalDateTime.now()));
+        assertThat(Boundary.pastOrPresent().invalidInstants()).isNotEmpty()
+                .allSatisfy(d -> assertThat(d).isAfter(Instant.now()));
+        assertThat(Boundary.futureOrPresent().invalidDateTimes()).isNotEmpty()
+                .allSatisfy(d -> assertThat(d).isBefore(LocalDateTime.now()));
+        assertThat(Boundary.futureOrPresent().invalidInstants()).isNotEmpty()
+                .allSatisfy(d -> assertThat(d).isBefore(Instant.now()));
+    }
+
+    @org.junit.jupiter.api.Test
+    @DisplayName("every temporal boundary gives valid and invalid values of every temporal type")
+    void everyTemporalAccessorHasValues() {
+        java.util.List<Boundary.TemporalBoundary> kinds = List.of(Boundary.past(), Boundary.pastOrPresent(),
+                Boundary.future(), Boundary.futureOrPresent());
+        for (Boundary.TemporalBoundary b : kinds) {
+            assertThat(b.validDates()).isNotEmpty();
+            assertThat(b.invalidDates()).isNotEmpty();
+            assertThat(b.validDateTimes()).isNotEmpty();
+            assertThat(b.invalidDateTimes()).isNotEmpty();
+            assertThat(b.validInstants()).isNotEmpty();
+            assertThat(b.invalidInstants()).isNotEmpty();
+        }
     }
 }
