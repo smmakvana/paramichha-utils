@@ -3,6 +3,7 @@
 package com.paramichha.utils;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -32,7 +33,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validArgumentInputs() {
-      return Stream.of(Arguments.of("valid argument", false, (String) null));
+      return Stream.of(Arguments.of("valid argument", true, "message"));
     }
   }
 
@@ -87,7 +88,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validNotBlankInputs() {
-      return Stream.of(Arguments.of("valid notBlank", (String) null, (String) null));
+      return Stream.of(Arguments.of("valid notBlank", "a", "name"));
     }
   }
 
@@ -106,7 +107,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validNotEmptyInputs() {
-      return Stream.of(Arguments.of("valid notEmpty", (String) null, (String) null));
+      return Stream.of(Arguments.of("valid notEmpty", "a", "name"));
     }
   }
 
@@ -125,7 +126,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validNotEmptyInputs() {
-      return Stream.of(Arguments.of("valid notEmpty", (Collection) null, (String) null));
+      return Stream.of(Arguments.of("valid notEmpty", List.of(1), "items"));
     }
   }
 
@@ -161,7 +162,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 0L, (String) null));
+      return Stream.of(Arguments.of("valid positive", 1L, "n"));
     }
   }
 
@@ -179,7 +180,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 0, (String) null));
+      return Stream.of(Arguments.of("valid positive", 1, "n"));
     }
   }
 
@@ -197,7 +198,7 @@ class GuardTest {
     }
 
     static Stream<Arguments> validStateInputs() {
-      return Stream.of(Arguments.of("valid state", false, (String) null));
+      return Stream.of(Arguments.of("valid state", true, "message"));
     }
   }
 }
