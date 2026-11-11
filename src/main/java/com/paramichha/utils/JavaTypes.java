@@ -15,41 +15,57 @@ import java.util.*;
 public final class JavaTypes {
 
     private static final Set<Class<?>> WRAPPERS = Set.of(
-            Boolean.class, Byte.class, Short.class, Character.class,
-            Integer.class, Long.class, Float.class, Double.class
-    );
+            Boolean.class,
+            Byte.class,
+            Short.class,
+            Character.class,
+            Integer.class,
+            Long.class,
+            Float.class,
+            Double.class);
 
     private static final Set<Class<?>> NUMERIC_TYPES = Set.of(
-            byte.class, short.class, int.class, long.class,
-            float.class, double.class,
-            Byte.class, Short.class, Integer.class, Long.class,
-            Float.class, Double.class,
-            BigDecimal.class, BigInteger.class
-    );
+            byte.class,
+            short.class,
+            int.class,
+            long.class,
+            float.class,
+            double.class,
+            Byte.class,
+            Short.class,
+            Integer.class,
+            Long.class,
+            Float.class,
+            Double.class,
+            BigDecimal.class,
+            BigInteger.class);
 
     private static final Set<Class<?>> TEMPORAL_TYPES = Set.of(
-            LocalDate.class, LocalTime.class, LocalDateTime.class,
-            ZonedDateTime.class, OffsetDateTime.class, Instant.class,
-            Year.class, YearMonth.class, java.util.Date.class,
-            java.sql.Date.class, java.sql.Timestamp.class
-    );
+            LocalDate.class,
+            LocalTime.class,
+            LocalDateTime.class,
+            ZonedDateTime.class,
+            OffsetDateTime.class,
+            Instant.class,
+            Year.class,
+            YearMonth.class,
+            java.util.Date.class,
+            java.sql.Date.class,
+            java.sql.Timestamp.class);
 
     private static final Map<Class<?>, Class<?>> PRIMITIVE_TO_WRAPPER = Map.of(
             boolean.class, Boolean.class,
-            byte.class,    Byte.class,
-            short.class,   Short.class,
-            char.class,    Character.class,
-            int.class,     Integer.class,
-            long.class,    Long.class,
-            float.class,   Float.class,
-            double.class,  Double.class,
-            void.class,    Void.class
-    );
+            byte.class, Byte.class,
+            short.class, Short.class,
+            char.class, Character.class,
+            int.class, Integer.class,
+            long.class, Long.class,
+            float.class, Float.class,
+            double.class, Double.class,
+            void.class, Void.class);
 
-    private static final Map<Class<?>, Class<?>> WRAPPER_TO_PRIMITIVE =
-            PRIMITIVE_TO_WRAPPER.entrySet().stream()
-                    .collect(java.util.stream.Collectors.toMap(
-                            Map.Entry::getValue, Map.Entry::getKey));
+    private static final Map<Class<?>, Class<?>> WRAPPER_TO_PRIMITIVE = PRIMITIVE_TO_WRAPPER.entrySet().stream()
+            .collect(java.util.stream.Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
 
     private JavaTypes() {}
 

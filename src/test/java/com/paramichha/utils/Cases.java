@@ -12,12 +12,18 @@ final class Cases {
 
     /** A call that must return {@code expected}. */
     record Returns(String name, ThrowingSupplier<?> call, Object expected) {
-        @Override public String toString() { return name; }
+        @Override
+        public String toString() {
+            return name;
+        }
     }
 
     /** A call that must throw {@code type}; {@code message} is checked only when it is not null. */
     record Rejects(String name, ThrowingSupplier<?> call, Class<? extends Throwable> type, String message) {
-        @Override public String toString() { return name; }
+        @Override
+        public String toString() {
+            return name;
+        }
     }
 
     static Returns ok(String name, ThrowingSupplier<?> call, Object expected) {

@@ -2,6 +2,8 @@
 // Regenerate: TestKit.of(Texts.class).generateTest().writeTo(...)
 package com.paramichha.utils;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -11,270 +13,269 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Texts")
 class TextsTest {
 
-  @Nested
-  @DisplayName("Texts Method camelCase()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodCamelCaseTest {
+    @Nested
+    @DisplayName("Texts Method camelCase()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodCamelCaseTest {
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validCamelCaseInputs")
-    @DisplayName("camelCase accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.camelCase(value);
-      assertThat(result).isNotNull();
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validCamelCaseInputs")
+        @DisplayName("camelCase accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.camelCase(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validCamelCaseInputs() {
+            return Stream.of(Arguments.of("valid camelCase", "hello world"));
+        }
     }
 
-    static Stream<Arguments> validCamelCaseInputs() {
-      return Stream.of(Arguments.of("valid camelCase", "hello world"));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method capitalize()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodCapitalizeTest {
 
-  @Nested
-  @DisplayName("Texts Method capitalize()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodCapitalizeTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validCapitalizeInputs")
+        @DisplayName("capitalize accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.capitalize(value);
+            assertThat(result).isNotNull();
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validCapitalizeInputs")
-    @DisplayName("capitalize accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.capitalize(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validCapitalizeInputs() {
-      return Stream.of(Arguments.of("valid capitalize", "abc"));
-    }
-  }
-
-  @Nested
-  @DisplayName("Texts Method containsIgnoreCase()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodContainsIgnoreCaseTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validContainsIgnoreCaseInputs")
-    @DisplayName("containsIgnoreCase accepts valid input")
-    void testAcceptsValidInput(String description, String text, String search) {
-      boolean result = Texts.containsIgnoreCase(text, search);
+        static Stream<Arguments> validCapitalizeInputs() {
+            return Stream.of(Arguments.of("valid capitalize", "abc"));
+        }
     }
 
-    static Stream<Arguments> validContainsIgnoreCaseInputs() {
-      return Stream.of(Arguments.of("valid containsIgnoreCase", "Hello", "ell"));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method containsIgnoreCase()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodContainsIgnoreCaseTest {
 
-  @Nested
-  @DisplayName("Texts Method decapitalize()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodDecapitalizeTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validContainsIgnoreCaseInputs")
+        @DisplayName("containsIgnoreCase accepts valid input")
+        void testAcceptsValidInput(String description, String text, String search) {
+            boolean result = Texts.containsIgnoreCase(text, search);
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecapitalizeInputs")
-    @DisplayName("decapitalize accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.decapitalize(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDecapitalizeInputs() {
-      return Stream.of(Arguments.of("valid decapitalize", "ABC"));
-    }
-  }
-
-  @Nested
-  @DisplayName("Texts Method emptyToNull()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodEmptyToNullTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validEmptyToNullInputs")
-    @DisplayName("emptyToNull accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.emptyToNull(value);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validContainsIgnoreCaseInputs() {
+            return Stream.of(Arguments.of("valid containsIgnoreCase", "Hello", "ell"));
+        }
     }
 
-    static Stream<Arguments> validEmptyToNullInputs() {
-      return Stream.of(Arguments.of("valid emptyToNull", "a"));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method decapitalize()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodDecapitalizeTest {
 
-  @Nested
-  @DisplayName("Texts Method equalsIgnoreCaseTrimmed()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodEqualsIgnoreCaseTrimmedTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecapitalizeInputs")
+        @DisplayName("decapitalize accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.decapitalize(value);
+            assertThat(result).isNotNull();
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validEqualsIgnoreCaseTrimmedInputs")
-    @DisplayName("equalsIgnoreCaseTrimmed accepts valid input")
-    void testAcceptsValidInput(String description, String a, String b) {
-      boolean result = Texts.equalsIgnoreCaseTrimmed(a, b);
-    }
-
-    static Stream<Arguments> validEqualsIgnoreCaseTrimmedInputs() {
-      return Stream.of(Arguments.of("valid equalsIgnoreCaseTrimmed", "a", "A"));
-    }
-  }
-
-  @Nested
-  @DisplayName("Texts Method isBlank()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodIsBlankTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validIsBlankInputs")
-    @DisplayName("isBlank accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      boolean result = Texts.isBlank(value);
+        static Stream<Arguments> validDecapitalizeInputs() {
+            return Stream.of(Arguments.of("valid decapitalize", "ABC"));
+        }
     }
 
-    static Stream<Arguments> validIsBlankInputs() {
-      return Stream.of(Arguments.of("valid isBlank", " "));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method emptyToNull()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodEmptyToNullTest {
 
-  @Nested
-  @DisplayName("Texts Method isNotBlank()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodIsNotBlankTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validEmptyToNullInputs")
+        @DisplayName("emptyToNull accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.emptyToNull(value);
+            assertThat(result).isNotNull();
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validIsNotBlankInputs")
-    @DisplayName("isNotBlank accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      boolean result = Texts.isNotBlank(value);
-    }
-
-    static Stream<Arguments> validIsNotBlankInputs() {
-      return Stream.of(Arguments.of("valid isNotBlank", "a"));
-    }
-  }
-
-  @Nested
-  @DisplayName("Texts Method kebabCase()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodKebabCaseTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validKebabCaseInputs")
-    @DisplayName("kebabCase accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.kebabCase(value);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validEmptyToNullInputs() {
+            return Stream.of(Arguments.of("valid emptyToNull", "a"));
+        }
     }
 
-    static Stream<Arguments> validKebabCaseInputs() {
-      return Stream.of(Arguments.of("valid kebabCase", "helloWorld"));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method equalsIgnoreCaseTrimmed()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodEqualsIgnoreCaseTrimmedTest {
 
-  @Nested
-  @DisplayName("Texts Method normalize()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodNormalizeTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validEqualsIgnoreCaseTrimmedInputs")
+        @DisplayName("equalsIgnoreCaseTrimmed accepts valid input")
+        void testAcceptsValidInput(String description, String a, String b) {
+            boolean result = Texts.equalsIgnoreCaseTrimmed(a, b);
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNormalizeInputs")
-    @DisplayName("normalize accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.normalize(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNormalizeInputs() {
-      return Stream.of(Arguments.of("valid normalize", " Hello  World "));
-    }
-  }
-
-  @Nested
-  @DisplayName("Texts Method nullToEmpty()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodNullToEmptyTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNullToEmptyInputs")
-    @DisplayName("nullToEmpty accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.nullToEmpty(value);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validEqualsIgnoreCaseTrimmedInputs() {
+            return Stream.of(Arguments.of("valid equalsIgnoreCaseTrimmed", "a", "A"));
+        }
     }
 
-    static Stream<Arguments> validNullToEmptyInputs() {
-      return Stream.of(Arguments.of("valid nullToEmpty", "a"));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method isBlank()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodIsBlankTest {
 
-  @Nested
-  @DisplayName("Texts Method pascalCase()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodPascalCaseTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validIsBlankInputs")
+        @DisplayName("isBlank accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            boolean result = Texts.isBlank(value);
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPascalCaseInputs")
-    @DisplayName("pascalCase accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.pascalCase(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPascalCaseInputs() {
-      return Stream.of(Arguments.of("valid pascalCase", "hello world"));
-    }
-  }
-
-  @Nested
-  @DisplayName("Texts Method safeTrim()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodSafeTrimTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSafeTrimInputs")
-    @DisplayName("safeTrim accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.safeTrim(value);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validIsBlankInputs() {
+            return Stream.of(Arguments.of("valid isBlank", " "));
+        }
     }
 
-    static Stream<Arguments> validSafeTrimInputs() {
-      return Stream.of(Arguments.of("valid safeTrim", " a "));
-    }
-  }
+    @Nested
+    @DisplayName("Texts Method isNotBlank()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodIsNotBlankTest {
 
-  @Nested
-  @DisplayName("Texts Method snakeCase()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TextsMethodSnakeCaseTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validIsNotBlankInputs")
+        @DisplayName("isNotBlank accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            boolean result = Texts.isNotBlank(value);
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSnakeCaseInputs")
-    @DisplayName("snakeCase accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = Texts.snakeCase(value);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validIsNotBlankInputs() {
+            return Stream.of(Arguments.of("valid isNotBlank", "a"));
+        }
     }
 
-    static Stream<Arguments> validSnakeCaseInputs() {
-      return Stream.of(Arguments.of("valid snakeCase", "helloWorld"));
+    @Nested
+    @DisplayName("Texts Method kebabCase()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodKebabCaseTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validKebabCaseInputs")
+        @DisplayName("kebabCase accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.kebabCase(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validKebabCaseInputs() {
+            return Stream.of(Arguments.of("valid kebabCase", "helloWorld"));
+        }
     }
-  }
+
+    @Nested
+    @DisplayName("Texts Method normalize()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodNormalizeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNormalizeInputs")
+        @DisplayName("normalize accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.normalize(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNormalizeInputs() {
+            return Stream.of(Arguments.of("valid normalize", " Hello  World "));
+        }
+    }
+
+    @Nested
+    @DisplayName("Texts Method nullToEmpty()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodNullToEmptyTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNullToEmptyInputs")
+        @DisplayName("nullToEmpty accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.nullToEmpty(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNullToEmptyInputs() {
+            return Stream.of(Arguments.of("valid nullToEmpty", "a"));
+        }
+    }
+
+    @Nested
+    @DisplayName("Texts Method pascalCase()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodPascalCaseTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPascalCaseInputs")
+        @DisplayName("pascalCase accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.pascalCase(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPascalCaseInputs() {
+            return Stream.of(Arguments.of("valid pascalCase", "hello world"));
+        }
+    }
+
+    @Nested
+    @DisplayName("Texts Method safeTrim()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodSafeTrimTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSafeTrimInputs")
+        @DisplayName("safeTrim accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.safeTrim(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSafeTrimInputs() {
+            return Stream.of(Arguments.of("valid safeTrim", " a "));
+        }
+    }
+
+    @Nested
+    @DisplayName("Texts Method snakeCase()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TextsMethodSnakeCaseTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSnakeCaseInputs")
+        @DisplayName("snakeCase accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = Texts.snakeCase(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSnakeCaseInputs() {
+            return Stream.of(Arguments.of("valid snakeCase", "helloWorld"));
+        }
+    }
 }

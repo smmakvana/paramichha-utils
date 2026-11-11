@@ -4,8 +4,7 @@ import java.util.Locale;
 
 public final class Texts {
 
-    private Texts() {
-    }
+    private Texts() {}
 
     public static boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
@@ -35,8 +34,7 @@ public final class Texts {
     public static String decapitalize(String value) {
         if (isBlank(value)) return value;
 
-        return Character.toLowerCase(value.charAt(0))
-                + value.substring(1);
+        return Character.toLowerCase(value.charAt(0)) + value.substring(1);
     }
 
     public static String camelCase(String value) {
@@ -59,41 +57,31 @@ public final class Texts {
     }
 
     public static String snakeCase(String value) {
-        return splitCamelCase(value)
-                .replaceAll("[\\s-]+", "_")
-                .toLowerCase(Locale.ROOT);
+        return splitCamelCase(value).replaceAll("[\\s-]+", "_").toLowerCase(Locale.ROOT);
     }
 
     public static String kebabCase(String value) {
-        return splitCamelCase(value)
-                .replaceAll("[\\s_]+", "-")
-                .toLowerCase(Locale.ROOT);
+        return splitCamelCase(value).replaceAll("[\\s_]+", "-").toLowerCase(Locale.ROOT);
     }
 
     public static String normalize(String value) {
         if (isBlank(value)) return "";
 
-        return value
-                .replaceAll("[^a-zA-Z0-9]", "")
-                .toLowerCase(Locale.ROOT);
+        return value.replaceAll("[^a-zA-Z0-9]", "").toLowerCase(Locale.ROOT);
     }
 
     public static boolean equalsIgnoreCaseTrimmed(String a, String b) {
-        return safeTrim(nullToEmpty(a))
-                .equalsIgnoreCase(safeTrim(nullToEmpty(b)));
+        return safeTrim(nullToEmpty(a)).equalsIgnoreCase(safeTrim(nullToEmpty(b)));
     }
 
     public static boolean containsIgnoreCase(String text, String search) {
         if (text == null || search == null) return false;
 
-        return text.toLowerCase(Locale.ROOT)
-                .contains(search.toLowerCase(Locale.ROOT));
+        return text.toLowerCase(Locale.ROOT).contains(search.toLowerCase(Locale.ROOT));
     }
 
     private static String normalizeSeparators(String value) {
-        return splitCamelCase(value)
-                .replaceAll("[_-]", " ")
-                .trim();
+        return splitCamelCase(value).replaceAll("[_-]", " ").trim();
     }
 
     private static String splitCamelCase(String value) {

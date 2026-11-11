@@ -43,8 +43,7 @@ import java.util.List;
  */
 public final class Boundary {
 
-    private Boundary() {
-    }
+    private Boundary() {}
 
     // =========================================================================
     // String boundaries
@@ -95,10 +94,7 @@ public final class Boundary {
             return switch (type) {
                 case NOT_BLANK -> List.of("a", "hello", "hello world", " hello ");
                 case NOT_EMPTY -> List.of("a", " ", "hello");
-                case SIZE -> List.of(
-                        "a".repeat(min),
-                        "a".repeat(Math.max(min, (min + max) / 2)),
-                        "a".repeat(max));
+                case SIZE -> List.of("a".repeat(min), "a".repeat(Math.max(min, (min + max) / 2)), "a".repeat(max));
                 case EMAIL -> List.of("user@example.com", "test.user+tag@domain.co.uk");
                 case URL -> List.of("https://example.com", "http://test.org/path?q=1");
                 case PATTERN -> List.of(); // cannot generate without knowing the regexp semantics
@@ -109,9 +105,10 @@ public final class Boundary {
             return switch (type) {
                 case NOT_BLANK -> withNull(List.of("", " ", "   ", "\t", "\n"));
                 case NOT_EMPTY -> withNull(List.of(""));
-                case SIZE -> min > 0
-                        ? withNull(List.of("a".repeat(min - 1), "a".repeat(max + 1)))
-                        : withNull(List.of("a".repeat(max + 1)));
+                case SIZE ->
+                    min > 0
+                            ? withNull(List.of("a".repeat(min - 1), "a".repeat(max + 1)))
+                            : withNull(List.of("a".repeat(max + 1)));
                 case EMAIL -> withNull(List.of("", "notanemail", "@nodomain", "no@", "a@b"));
                 case URL -> withNull(List.of("", "notaurl", "ftp://", "://missing"));
                 case PATTERN -> withNull(List.of(""));
@@ -120,8 +117,7 @@ public final class Boundary {
 
         public List<String> edge() {
             return switch (type) {
-                case SIZE -> List.of("a".repeat(min), "a".repeat(min + 1),
-                        "a".repeat(max - 1), "a".repeat(max));
+                case SIZE -> List.of("a".repeat(min), "a".repeat(min + 1), "a".repeat(max - 1), "a".repeat(max));
                 case NOT_BLANK -> List.of("a", " a", "a ");
                 default -> List.of();
             };
@@ -239,8 +235,7 @@ public final class Boundary {
         }
 
         private List<Long> computeValid() {
-            long mid = min == Long.MIN_VALUE || max == Long.MAX_VALUE
-                    ? Math.max(min, 0) : (min + max) / 2;
+            long mid = min == Long.MIN_VALUE || max == Long.MAX_VALUE ? Math.max(min, 0) : (min + max) / 2;
             return switch (numType) {
                 case MIN -> List.of(min, mid, Long.MAX_VALUE / 2);
                 case MAX -> List.of(Long.MIN_VALUE / 2, mid, max);
@@ -327,9 +322,10 @@ public final class Boundary {
                 case MAX -> List.of(max.subtract(new BigDecimal("100")), max.subtract(BigDecimal.ONE), max);
                 case RANGE -> List.of(min, min.add(max.subtract(min).divide(new BigDecimal("2"))), max);
                 case POSITIVE -> List.of(new BigDecimal("0.01"), BigDecimal.ONE, new BigDecimal("999.99"));
-                case DIGITS -> List.of(
-                        new BigDecimal("1." + "0".repeat(fractionDigits)),
-                        new BigDecimal("9".repeat(integerDigits) + "." + "9".repeat(fractionDigits)));
+                case DIGITS ->
+                    List.of(
+                            new BigDecimal("1." + "0".repeat(fractionDigits)),
+                            new BigDecimal("9".repeat(integerDigits) + "." + "9".repeat(fractionDigits)));
             };
         }
 
@@ -339,8 +335,10 @@ public final class Boundary {
                 case MAX -> withNull(List.of(max.add(new BigDecimal("0.01")), max.add(BigDecimal.ONE)));
                 case RANGE -> withNull(List.of(min.subtract(new BigDecimal("0.01")), max.add(new BigDecimal("0.01"))));
                 case POSITIVE -> withNull(List.of(BigDecimal.ZERO, new BigDecimal("-0.01")));
-                case DIGITS -> withNull(List.of(new BigDecimal("9".repeat(integerDigits + 1)),
-                        new BigDecimal("0." + "9".repeat(fractionDigits + 1))));
+                case DIGITS ->
+                    withNull(List.of(
+                            new BigDecimal("9".repeat(integerDigits + 1)),
+                            new BigDecimal("0." + "9".repeat(fractionDigits + 1))));
             };
         }
 
@@ -348,8 +346,7 @@ public final class Boundary {
             return switch (decType) {
                 case MIN -> List.of(min, min.add(new BigDecimal("0.01")));
                 case MAX -> List.of(max.subtract(new BigDecimal("0.01")), max);
-                case RANGE -> List.of(min, min.add(new BigDecimal("0.01")),
-                        max.subtract(new BigDecimal("0.01")), max);
+                case RANGE -> List.of(min, min.add(new BigDecimal("0.01")), max.subtract(new BigDecimal("0.01")), max);
                 default -> valid();
             };
         }
@@ -385,10 +382,13 @@ public final class Boundary {
         // ── LocalDate ─────────────────────────────────────────────────────
         public List<LocalDate> validDates() {
             return switch (tempType) {
-                case PAST -> List.of(LocalDate.now().minusDays(1), LocalDate.now().minusYears(1));
+                case PAST ->
+                    List.of(LocalDate.now().minusDays(1), LocalDate.now().minusYears(1));
                 case PAST_OR_PRESENT -> List.of(LocalDate.now().minusDays(1), LocalDate.now());
-                case FUTURE -> List.of(LocalDate.now().plusDays(1), LocalDate.now().plusYears(1));
-                case FUTURE_OR_PRESENT -> List.of(LocalDate.now(), LocalDate.now().plusDays(1));
+                case FUTURE ->
+                    List.of(LocalDate.now().plusDays(1), LocalDate.now().plusYears(1));
+                case FUTURE_OR_PRESENT ->
+                    List.of(LocalDate.now(), LocalDate.now().plusDays(1));
             };
         }
 
@@ -404,12 +404,22 @@ public final class Boundary {
         // ── LocalDateTime ─────────────────────────────────────────────────
         public List<LocalDateTime> validDateTimes() {
             return switch (tempType) {
-                case PAST -> List.of(LocalDateTime.now().minusSeconds(1), LocalDateTime.now().minusYears(1));
+                case PAST ->
+                    List.of(
+                            LocalDateTime.now().minusSeconds(1),
+                            LocalDateTime.now().minusYears(1));
                 case PAST_OR_PRESENT ->
-                        List.of(LocalDateTime.now().minusSeconds(1), LocalDateTime.now().minusMinutes(1));
-                case FUTURE -> List.of(LocalDateTime.now().plusSeconds(1), LocalDateTime.now().plusYears(1));
+                    List.of(
+                            LocalDateTime.now().minusSeconds(1),
+                            LocalDateTime.now().minusMinutes(1));
+                case FUTURE ->
+                    List.of(
+                            LocalDateTime.now().plusSeconds(1),
+                            LocalDateTime.now().plusYears(1));
                 case FUTURE_OR_PRESENT ->
-                        List.of(LocalDateTime.now().plusSeconds(1), LocalDateTime.now().plusMinutes(1));
+                    List.of(
+                            LocalDateTime.now().plusSeconds(1),
+                            LocalDateTime.now().plusMinutes(1));
             };
         }
 
@@ -425,10 +435,14 @@ public final class Boundary {
         // ── Instant ───────────────────────────────────────────────────────
         public List<Instant> validInstants() {
             return switch (tempType) {
-                case PAST -> List.of(Instant.now().minusSeconds(1), Instant.now().minusSeconds(3600));
-                case PAST_OR_PRESENT -> List.of(Instant.now().minusSeconds(1), Instant.now().minusSeconds(60));
-                case FUTURE -> List.of(Instant.now().plusSeconds(1), Instant.now().plusSeconds(3600));
-                case FUTURE_OR_PRESENT -> List.of(Instant.now().plusSeconds(1), Instant.now().plusSeconds(60));
+                case PAST ->
+                    List.of(Instant.now().minusSeconds(1), Instant.now().minusSeconds(3600));
+                case PAST_OR_PRESENT ->
+                    List.of(Instant.now().minusSeconds(1), Instant.now().minusSeconds(60));
+                case FUTURE ->
+                    List.of(Instant.now().plusSeconds(1), Instant.now().plusSeconds(3600));
+                case FUTURE_OR_PRESENT ->
+                    List.of(Instant.now().plusSeconds(1), Instant.now().plusSeconds(60));
             };
         }
 
@@ -485,11 +499,37 @@ public final class Boundary {
     // Internal enums
     // =========================================================================
 
-    private enum StringConstraint {NOT_BLANK, NOT_EMPTY, SIZE, EMAIL, URL, PATTERN}
+    private enum StringConstraint {
+        NOT_BLANK,
+        NOT_EMPTY,
+        SIZE,
+        EMAIL,
+        URL,
+        PATTERN
+    }
 
-    private enum NumericConstraint {MIN, MAX, RANGE, POSITIVE, POSITIVE_OR_ZERO, NEGATIVE, NEGATIVE_OR_ZERO}
+    private enum NumericConstraint {
+        MIN,
+        MAX,
+        RANGE,
+        POSITIVE,
+        POSITIVE_OR_ZERO,
+        NEGATIVE,
+        NEGATIVE_OR_ZERO
+    }
 
-    private enum DecimalConstraint {MIN, MAX, RANGE, POSITIVE, DIGITS}
+    private enum DecimalConstraint {
+        MIN,
+        MAX,
+        RANGE,
+        POSITIVE,
+        DIGITS
+    }
 
-    private enum TemporalConstraint {PAST, PAST_OR_PRESENT, FUTURE, FUTURE_OR_PRESENT}
+    private enum TemporalConstraint {
+        PAST,
+        PAST_OR_PRESENT,
+        FUTURE,
+        FUTURE_OR_PRESENT
+    }
 }

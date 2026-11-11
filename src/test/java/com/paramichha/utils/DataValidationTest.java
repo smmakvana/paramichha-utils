@@ -2,6 +2,8 @@
 // Regenerate: TestKit.of(DataValidation.class).generateTest().writeTo(...)
 package com.paramichha.utils;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -17,2501 +19,2493 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("DataValidation")
 class DataValidationTest {
 
-  @Nested
-  @DisplayName("DataValidation Method assertFalse()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertFalseBooleanTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertFalseInputs")
-    @DisplayName("assertFalse accepts valid input")
-    void testAcceptsValidInput(String description, Boolean value) {
-      Boolean result = DataValidation.assertFalse(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validAssertFalseInputs() {
-      return Stream.of(Arguments.of("valid assertFalse", false));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertFalse()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertFalseBoolean2Test {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertFalseInputs")
-    @DisplayName("assertFalse accepts valid input")
-    void testAcceptsValidInput(String description, boolean value) {
-      boolean result = DataValidation.assertFalse(value);
-    }
-
-    static Stream<Arguments> validAssertFalseInputs() {
-      return Stream.of(Arguments.of("valid assertFalse", false));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertFalse()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertFalseBooleanStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertFalseInputs")
-    @DisplayName("assertFalse accepts valid input")
-    void testAcceptsValidInput(String description, Boolean value, String message) {
-      Boolean result = DataValidation.assertFalse(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validAssertFalseInputs() {
-      return Stream.of(Arguments.of("valid assertFalse", false, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertFalse()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertFalseBooleanString2Test {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertFalseInputs")
-    @DisplayName("assertFalse accepts valid input")
-    void testAcceptsValidInput(String description, boolean value, String message) {
-      boolean result = DataValidation.assertFalse(value, message);
-    }
-
-    static Stream<Arguments> validAssertFalseInputs() {
-      return Stream.of(Arguments.of("valid assertFalse", false, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertTrue()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertTrueBooleanTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertTrueInputs")
-    @DisplayName("assertTrue accepts valid input")
-    void testAcceptsValidInput(String description, boolean value) {
-      boolean result = DataValidation.assertTrue(value);
-    }
-
-    static Stream<Arguments> validAssertTrueInputs() {
-      return Stream.of(Arguments.of("valid assertTrue", true));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertTrue()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertTrueBoolean2Test {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertTrueInputs")
-    @DisplayName("assertTrue accepts valid input")
-    void testAcceptsValidInput(String description, Boolean value) {
-      Boolean result = DataValidation.assertTrue(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validAssertTrueInputs() {
-      return Stream.of(Arguments.of("valid assertTrue", true));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertTrue()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertTrueBooleanStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertTrueInputs")
-    @DisplayName("assertTrue accepts valid input")
-    void testAcceptsValidInput(String description, boolean value, String message) {
-      boolean result = DataValidation.assertTrue(value, message);
-    }
-
-    static Stream<Arguments> validAssertTrueInputs() {
-      return Stream.of(Arguments.of("valid assertTrue", true, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method assertTrue()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodAssertTrueBooleanString2Test {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validAssertTrueInputs")
-    @DisplayName("assertTrue accepts valid input")
-    void testAcceptsValidInput(String description, Boolean value, String message) {
-      Boolean result = DataValidation.assertTrue(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validAssertTrueInputs() {
-      return Stream.of(Arguments.of("valid assertTrue", true, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method creditCard()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodCreditCardStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validCreditCardInputs")
-    @DisplayName("creditCard accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.creditCard(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validCreditCardInputs() {
-      return Stream.of(Arguments.of("valid creditCard", "4111111111111111"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method creditCard()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodCreditCardStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validCreditCardInputs")
-    @DisplayName("creditCard accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.creditCard(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validCreditCardInputs() {
-      return Stream.of(Arguments.of("valid creditCard", "4111111111111111", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method decimalMax()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodDecimalMaxStringBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalMaxInputs")
-    @DisplayName("decimalMax accepts valid input")
-    void testAcceptsValidInput(String description, String max, BigDecimal value) {
-      BigDecimal result = DataValidation.decimalMax(max, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDecimalMaxInputs() {
-      return Stream.of(Arguments.of("valid decimalMax", "10", new BigDecimal("1")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method decimalMax()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodDecimalMaxStringBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalMaxInputs")
-    @DisplayName("decimalMax accepts valid input")
-    void testAcceptsValidInput(String description, String max, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.decimalMax(max, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDecimalMaxInputs() {
-      return Stream.of(Arguments.of("valid decimalMax", "10", new BigDecimal("1"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method decimalMin()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodDecimalMinStringBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalMinInputs")
-    @DisplayName("decimalMin accepts valid input")
-    void testAcceptsValidInput(String description, String min, BigDecimal value) {
-      BigDecimal result = DataValidation.decimalMin(min, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDecimalMinInputs() {
-      return Stream.of(Arguments.of("valid decimalMin", "0.5", new BigDecimal("1")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method decimalMin()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodDecimalMinStringBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalMinInputs")
-    @DisplayName("decimalMin accepts valid input")
-    void testAcceptsValidInput(String description, String min, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.decimalMin(min, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDecimalMinInputs() {
-      return Stream.of(Arguments.of("valid decimalMin", "0.5", new BigDecimal("1"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method digits()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodDigitsIntIntBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDigitsInputs")
-    @DisplayName("digits accepts valid input")
-    void testAcceptsValidInput(String description, int integer, int fraction, BigDecimal value) {
-      BigDecimal result = DataValidation.digits(integer, fraction, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDigitsInputs() {
-      return Stream.of(Arguments.of("valid digits", 3, 2, new BigDecimal("1.5")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method digits()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodDigitsIntIntBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDigitsInputs")
-    @DisplayName("digits accepts valid input")
-    void testAcceptsValidInput(
-        String description, int integer, int fraction, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.digits(integer, fraction, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDigitsInputs() {
-      return Stream.of(Arguments.of("valid digits", 3, 2, new BigDecimal("1.5"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method ean()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodEanStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validEanInputs")
-    @DisplayName("ean accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.ean(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validEanInputs() {
-      return Stream.of(Arguments.of("valid ean", "4006381333931"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method ean()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodEanStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validEanInputs")
-    @DisplayName("ean accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.ean(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validEanInputs() {
-      return Stream.of(Arguments.of("valid ean", "4006381333931", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method email()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodEmailStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validEmailInputs")
-    @DisplayName("email accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.email(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validEmailInputs() {
-      return Stream.of(Arguments.of("valid email", "a@b.co"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method email()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodEmailStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validEmailInputs")
-    @DisplayName("email accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.email(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validEmailInputs() {
-      return Stream.of(Arguments.of("valid email", "a@b.co", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureLocalDateTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureInputs")
-    @DisplayName("future accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value) {
-      LocalDate result = DataValidation.future(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureInputs() {
-      return Stream.of(Arguments.of("valid future", LocalDate.of(2999, 1, 1)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureInstantTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureInputs")
-    @DisplayName("future accepts valid input")
-    void testAcceptsValidInput(String description, Instant value) {
-      Instant result = DataValidation.future(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureInputs() {
-      return Stream.of(Arguments.of("valid future", Instant.parse("2999-01-01T00:00:00Z")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureLocalDateTimeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureInputs")
-    @DisplayName("future accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value) {
-      LocalDateTime result = DataValidation.future(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureInputs() {
-      return Stream.of(Arguments.of("valid future", LocalDateTime.of(2999, 1, 1, 0, 0)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureInstantStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureInputs")
-    @DisplayName("future accepts valid input")
-    void testAcceptsValidInput(String description, Instant value, String message) {
-      Instant result = DataValidation.future(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureInputs() {
-      return Stream.of(Arguments.of("valid future", Instant.parse("2999-01-01T00:00:00Z"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureLocalDateStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureInputs")
-    @DisplayName("future accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value, String message) {
-      LocalDate result = DataValidation.future(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureInputs() {
-      return Stream.of(Arguments.of("valid future", LocalDate.of(2999, 1, 1), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureLocalDateTimeStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureInputs")
-    @DisplayName("future accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value, String message) {
-      LocalDateTime result = DataValidation.future(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureInputs() {
-      return Stream.of(Arguments.of("valid future", LocalDateTime.of(2999, 1, 1, 0, 0), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureOrPresentLocalDateTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureOrPresentInputs")
-    @DisplayName("futureOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value) {
-      LocalDate result = DataValidation.futureOrPresent(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureOrPresentInputs() {
-      return Stream.of(Arguments.of("valid futureOrPresent", LocalDate.of(2999, 1, 1)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureOrPresentLocalDateTimeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureOrPresentInputs")
-    @DisplayName("futureOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value) {
-      LocalDateTime result = DataValidation.futureOrPresent(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureOrPresentInputs() {
-      return Stream.of(Arguments.of("valid futureOrPresent", LocalDateTime.of(2999, 1, 1, 0, 0)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureOrPresentInstantTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureOrPresentInputs")
-    @DisplayName("futureOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, Instant value) {
-      Instant result = DataValidation.futureOrPresent(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureOrPresentInputs() {
-      return Stream.of(
-          Arguments.of("valid futureOrPresent", Instant.parse("2999-01-01T00:00:00Z")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureOrPresentLocalDateStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureOrPresentInputs")
-    @DisplayName("futureOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value, String message) {
-      LocalDate result = DataValidation.futureOrPresent(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureOrPresentInputs() {
-      return Stream.of(Arguments.of("valid futureOrPresent", LocalDate.of(2999, 1, 1), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureOrPresentInstantStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureOrPresentInputs")
-    @DisplayName("futureOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, Instant value, String message) {
-      Instant result = DataValidation.futureOrPresent(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureOrPresentInputs() {
-      return Stream.of(
-          Arguments.of("valid futureOrPresent", Instant.parse("2999-01-01T00:00:00Z"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodFutureOrPresentLocalDateTimeStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validFutureOrPresentInputs")
-    @DisplayName("futureOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value, String message) {
-      LocalDateTime result = DataValidation.futureOrPresent(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validFutureOrPresentInputs() {
-      return Stream.of(
-          Arguments.of("valid futureOrPresent", LocalDateTime.of(2999, 1, 1, 0, 0), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method isNull()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodIsNullObjectTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validIsNullInputs")
-    @DisplayName("isNull accepts valid input")
-    void testAcceptsValidInput(String description, Object value) {
-      Object result = DataValidation.isNull(value);
-      assertThat(result).isNull();
-    }
-
-    static Stream<Arguments> validIsNullInputs() {
-      return Stream.of(Arguments.of("valid isNull", (Object) null));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method isNull()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodIsNullObjectStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validIsNullInputs")
-    @DisplayName("isNull accepts valid input")
-    void testAcceptsValidInput(String description, Object value, String message) {
-      Object result = DataValidation.isNull(value, message);
-      assertThat(result).isNull();
-    }
-
-    static Stream<Arguments> validIsNullInputs() {
-      return Stream.of(Arguments.of("valid isNull", (Object) null, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method isbn()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodIsbnStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validIsbnInputs")
-    @DisplayName("isbn accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.isbn(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validIsbnInputs() {
-      return Stream.of(Arguments.of("valid isbn", "9780306406157"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method isbn()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodIsbnStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validIsbnInputs")
-    @DisplayName("isbn accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.isbn(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validIsbnInputs() {
-      return Stream.of(Arguments.of("valid isbn", "9780306406157", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method length()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodLengthIntIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validLengthInputs")
-    @DisplayName("length accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max, String value) {
-      String result = DataValidation.length(min, max, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validLengthInputs() {
-      return Stream.of(Arguments.of("valid length", 1, 5, "abc"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method length()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodLengthIntIntStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validLengthInputs")
-    @DisplayName("length accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max, String value, String message) {
-      String result = DataValidation.length(min, max, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validLengthInputs() {
-      return Stream.of(Arguments.of("valid length", 1, 5, "abc", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongByteTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, byte value) {
-      byte result = DataValidation.max(max, value);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, (byte) 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongShortTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, short value) {
-      short result = DataValidation.max(max, value);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, (short) 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, BigDecimal value) {
-      BigDecimal result = DataValidation.max(max, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, new BigDecimal("1")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongLongTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, long value) {
-      long result = DataValidation.max(max, value);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1L));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongIntTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, int value) {
-      int result = DataValidation.max(max, value);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongDoubleTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, double value) {
-      double result = DataValidation.max(max, value);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1.0d));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongFloatTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, float value) {
-      float result = DataValidation.max(max, value);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1.0f));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongByteStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, byte value, String message) {
-      byte result = DataValidation.max(max, value, message);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, (byte) 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongShortStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, short value, String message) {
-      short result = DataValidation.max(max, value, message);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, (short) 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.max(max, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, new BigDecimal("1"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongDoubleStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, double value, String message) {
-      double result = DataValidation.max(max, value, message);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1.0d, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongLongStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, long value, String message) {
-      long result = DataValidation.max(max, value, message);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1L, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, int value, String message) {
-      int result = DataValidation.max(max, value, message);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMaxLongFloatStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max, float value, String message) {
-      float result = DataValidation.max(max, value, message);
-    }
-
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L, 1.0f, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongShortTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, short value) {
-      short result = DataValidation.min(min, value);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, (short) 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, BigDecimal value) {
-      BigDecimal result = DataValidation.min(min, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, new BigDecimal("1")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongLongTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, long value) {
-      long result = DataValidation.min(min, value);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1L));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongDoubleTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, double value) {
-      double result = DataValidation.min(min, value);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1.0d));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongIntTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, int value) {
-      int result = DataValidation.min(min, value);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongFloatTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, float value) {
-      float result = DataValidation.min(min, value);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1.0f));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongByteTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, byte value) {
-      byte result = DataValidation.min(min, value);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, (byte) 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.min(min, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, new BigDecimal("1"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongShortStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, short value, String message) {
-      short result = DataValidation.min(min, value, message);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, (short) 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongByteStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, byte value, String message) {
-      byte result = DataValidation.min(min, value, message);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, (byte) 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongLongStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, long value, String message) {
-      long result = DataValidation.min(min, value, message);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1L, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongDoubleStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, double value, String message) {
-      double result = DataValidation.min(min, value, message);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1.0d, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, int value, String message) {
-      int result = DataValidation.min(min, value, message);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodMinLongFloatStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min, float value, String message) {
-      float result = DataValidation.min(min, value, message);
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L, 1.0f, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeIntTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, int value) {
-      int result = DataValidation.negative(value);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeFloatTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, float value) {
-      float result = DataValidation.negative(value);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1.0f));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeDoubleTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, double value) {
-      double result = DataValidation.negative(value);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1.0d));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeLongTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, long value) {
-      long result = DataValidation.negative(value);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1L));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value) {
-      BigDecimal result = DataValidation.negative(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", new BigDecimal("-1")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.negative(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", new BigDecimal("-1"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, int value, String message) {
-      int result = DataValidation.negative(value, message);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeFloatStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, float value, String message) {
-      float result = DataValidation.negative(value, message);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1.0f, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeDoubleStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, double value, String message) {
-      double result = DataValidation.negative(value, message);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1.0d, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeLongStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeInputs")
-    @DisplayName("negative accepts valid input")
-    void testAcceptsValidInput(String description, long value, String message) {
-      long result = DataValidation.negative(value, message);
-    }
-
-    static Stream<Arguments> validNegativeInputs() {
-      return Stream.of(Arguments.of("valid negative", -1L, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroDoubleTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, double value) {
-      double result = DataValidation.negativeOrZero(value);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0.0d));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroLongTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, long value) {
-      long result = DataValidation.negativeOrZero(value);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0L));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroFloatTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, float value) {
-      float result = DataValidation.negativeOrZero(value);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0.0f));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value) {
-      BigDecimal result = DataValidation.negativeOrZero(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", new BigDecimal("0")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroIntTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, int value) {
-      int result = DataValidation.negativeOrZero(value);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroDoubleStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, double value, String message) {
-      double result = DataValidation.negativeOrZero(value, message);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0.0d, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroLongStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, long value, String message) {
-      long result = DataValidation.negativeOrZero(value, message);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0L, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, int value, String message) {
-      int result = DataValidation.negativeOrZero(value, message);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroFloatStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, float value, String message) {
-      float result = DataValidation.negativeOrZero(value, message);
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", 0.0f, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNegativeOrZeroBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNegativeOrZeroInputs")
-    @DisplayName("negativeOrZero accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.negativeOrZero(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNegativeOrZeroInputs() {
-      return Stream.of(Arguments.of("valid negativeOrZero", new BigDecimal("0"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notBlank()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotBlankStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotBlankInputs")
-    @DisplayName("notBlank accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.notBlank(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotBlankInputs() {
-      return Stream.of(Arguments.of("valid notBlank", "a"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notBlank()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotBlankStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotBlankInputs")
-    @DisplayName("notBlank accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.notBlank(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotBlankInputs() {
-      return Stream.of(Arguments.of("valid notBlank", "a", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notEmpty()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotEmptyCollectionTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotEmptyInputs")
-    @DisplayName("notEmpty accepts valid input")
-    void testAcceptsValidInput(String description, Collection value) {
-      Collection result = DataValidation.notEmpty(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotEmptyInputs() {
-      return Stream.of(Arguments.of("valid notEmpty", List.of(1)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notEmpty()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotEmptyStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotEmptyInputs")
-    @DisplayName("notEmpty accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.notEmpty(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotEmptyInputs() {
-      return Stream.of(Arguments.of("valid notEmpty", "a"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notEmpty()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotEmptyCollectionStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotEmptyInputs")
-    @DisplayName("notEmpty accepts valid input")
-    void testAcceptsValidInput(String description, Collection value, String message) {
-      Collection result = DataValidation.notEmpty(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotEmptyInputs() {
-      return Stream.of(Arguments.of("valid notEmpty", List.of(1), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notEmpty()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotEmptyStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotEmptyInputs")
-    @DisplayName("notEmpty accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.notEmpty(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotEmptyInputs() {
-      return Stream.of(Arguments.of("valid notEmpty", "a", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notNull()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotNullObjectTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotNullInputs")
-    @DisplayName("notNull accepts valid input")
-    void testAcceptsValidInput(String description, Object value) {
-      Object result = DataValidation.notNull(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotNullInputs() {
-      return Stream.of(Arguments.of("valid notNull", "x"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method notNull()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodNotNullObjectStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validNotNullInputs")
-    @DisplayName("notNull accepts valid input")
-    void testAcceptsValidInput(String description, Object value, String message) {
-      Object result = DataValidation.notNull(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validNotNullInputs() {
-      return Stream.of(Arguments.of("valid notNull", "x", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastLocalDateTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastInputs")
-    @DisplayName("past accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value) {
-      LocalDate result = DataValidation.past(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastInputs() {
-      return Stream.of(Arguments.of("valid past", LocalDate.of(2000, 1, 1)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastInstantTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastInputs")
-    @DisplayName("past accepts valid input")
-    void testAcceptsValidInput(String description, Instant value) {
-      Instant result = DataValidation.past(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastInputs() {
-      return Stream.of(Arguments.of("valid past", Instant.parse("2000-01-01T00:00:00Z")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastLocalDateTimeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastInputs")
-    @DisplayName("past accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value) {
-      LocalDateTime result = DataValidation.past(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastInputs() {
-      return Stream.of(Arguments.of("valid past", LocalDateTime.of(2000, 1, 1, 0, 0)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastLocalDateStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastInputs")
-    @DisplayName("past accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value, String message) {
-      LocalDate result = DataValidation.past(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastInputs() {
-      return Stream.of(Arguments.of("valid past", LocalDate.of(2000, 1, 1), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastInstantStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastInputs")
-    @DisplayName("past accepts valid input")
-    void testAcceptsValidInput(String description, Instant value, String message) {
-      Instant result = DataValidation.past(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastInputs() {
-      return Stream.of(Arguments.of("valid past", Instant.parse("2000-01-01T00:00:00Z"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastLocalDateTimeStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastInputs")
-    @DisplayName("past accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value, String message) {
-      LocalDateTime result = DataValidation.past(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastInputs() {
-      return Stream.of(Arguments.of("valid past", LocalDateTime.of(2000, 1, 1, 0, 0), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastOrPresentLocalDateTimeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastOrPresentInputs")
-    @DisplayName("pastOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value) {
-      LocalDateTime result = DataValidation.pastOrPresent(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastOrPresentInputs() {
-      return Stream.of(Arguments.of("valid pastOrPresent", LocalDateTime.of(2000, 1, 1, 0, 0)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastOrPresentInstantTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastOrPresentInputs")
-    @DisplayName("pastOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, Instant value) {
-      Instant result = DataValidation.pastOrPresent(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastOrPresentInputs() {
-      return Stream.of(Arguments.of("valid pastOrPresent", Instant.parse("2000-01-01T00:00:00Z")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastOrPresentLocalDateTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastOrPresentInputs")
-    @DisplayName("pastOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value) {
-      LocalDate result = DataValidation.pastOrPresent(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastOrPresentInputs() {
-      return Stream.of(Arguments.of("valid pastOrPresent", LocalDate.of(2000, 1, 1)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastOrPresentLocalDateTimeStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastOrPresentInputs")
-    @DisplayName("pastOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDateTime value, String message) {
-      LocalDateTime result = DataValidation.pastOrPresent(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastOrPresentInputs() {
-      return Stream.of(
-          Arguments.of("valid pastOrPresent", LocalDateTime.of(2000, 1, 1, 0, 0), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastOrPresentLocalDateStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastOrPresentInputs")
-    @DisplayName("pastOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, LocalDate value, String message) {
-      LocalDate result = DataValidation.pastOrPresent(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastOrPresentInputs() {
-      return Stream.of(Arguments.of("valid pastOrPresent", LocalDate.of(2000, 1, 1), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPastOrPresentInstantStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPastOrPresentInputs")
-    @DisplayName("pastOrPresent accepts valid input")
-    void testAcceptsValidInput(String description, Instant value, String message) {
-      Instant result = DataValidation.pastOrPresent(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPastOrPresentInputs() {
-      return Stream.of(
-          Arguments.of("valid pastOrPresent", Instant.parse("2000-01-01T00:00:00Z"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pattern()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPatternStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPatternInputs")
-    @DisplayName("pattern accepts valid input")
-    void testAcceptsValidInput(String description, String regexp, String value) {
-      String result = DataValidation.pattern(regexp, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPatternInputs() {
-      return Stream.of(Arguments.of("valid pattern", "[a-z]+", "abc"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method pattern()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPatternStringStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPatternInputs")
-    @DisplayName("pattern accepts valid input")
-    void testAcceptsValidInput(String description, String regexp, String value, String message) {
-      String result = DataValidation.pattern(regexp, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPatternInputs() {
-      return Stream.of(Arguments.of("valid pattern", "[a-z]+", "abc", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveLongTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, long value) {
-      long result = DataValidation.positive(value);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1L));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveIntTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, int value) {
-      int result = DataValidation.positive(value);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveFloatTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, float value) {
-      float result = DataValidation.positive(value);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1.0f));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value) {
-      BigDecimal result = DataValidation.positive(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", new BigDecimal("1")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveDoubleTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, double value) {
-      double result = DataValidation.positive(value);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1.0d));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, int value, String message) {
-      int result = DataValidation.positive(value, message);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveLongStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, long value, String message) {
-      long result = DataValidation.positive(value, message);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1L, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveFloatStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, float value, String message) {
-      float result = DataValidation.positive(value, message);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1.0f, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.positive(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", new BigDecimal("1"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveDoubleStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveInputs")
-    @DisplayName("positive accepts valid input")
-    void testAcceptsValidInput(String description, double value, String message) {
-      double result = DataValidation.positive(value, message);
-    }
-
-    static Stream<Arguments> validPositiveInputs() {
-      return Stream.of(Arguments.of("valid positive", 1.0d, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroLongTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, long value) {
-      long result = DataValidation.positiveOrZero(value);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0L));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroDoubleTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, double value) {
-      double result = DataValidation.positiveOrZero(value);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0.0d));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroFloatTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, float value) {
-      float result = DataValidation.positiveOrZero(value);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0.0f));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroBigDecimalTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value) {
-      BigDecimal result = DataValidation.positiveOrZero(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", new BigDecimal("0")));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroIntTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, int value) {
-      int result = DataValidation.positiveOrZero(value);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroDoubleStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, double value, String message) {
-      double result = DataValidation.positiveOrZero(value, message);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0.0d, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroFloatStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, float value, String message) {
-      float result = DataValidation.positiveOrZero(value, message);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0.0f, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroBigDecimalStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, BigDecimal value, String message) {
-      BigDecimal result = DataValidation.positiveOrZero(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", new BigDecimal("0"), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, int value, String message) {
-      int result = DataValidation.positiveOrZero(value, message);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodPositiveOrZeroLongStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPositiveOrZeroInputs")
-    @DisplayName("positiveOrZero accepts valid input")
-    void testAcceptsValidInput(String description, long value, String message) {
-      long result = DataValidation.positiveOrZero(value, message);
-    }
-
-    static Stream<Arguments> validPositiveOrZeroInputs() {
-      return Stream.of(Arguments.of("valid positiveOrZero", 0L, "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method size()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodSizeIntIntStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSizeInputs")
-    @DisplayName("size accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max, String value) {
-      String result = DataValidation.size(min, max, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validSizeInputs() {
-      return Stream.of(Arguments.of("valid size", 1, 5, "abc"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method size()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodSizeIntIntCollectionTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSizeInputs")
-    @DisplayName("size accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max, Collection value) {
-      Collection result = DataValidation.size(min, max, value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validSizeInputs() {
-      return Stream.of(Arguments.of("valid size", 1, 5, List.of(1, 2)));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method size()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodSizeIntIntStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSizeInputs")
-    @DisplayName("size accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max, String value, String message) {
-      String result = DataValidation.size(min, max, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validSizeInputs() {
-      return Stream.of(Arguments.of("valid size", 1, 5, "abc", "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method size()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodSizeIntIntCollectionStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSizeInputs")
-    @DisplayName("size accepts valid input")
-    void testAcceptsValidInput(
-        String description, int min, int max, Collection value, String message) {
-      Collection result = DataValidation.size(min, max, value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validSizeInputs() {
-      return Stream.of(Arguments.of("valid size", 1, 5, List.of(1), "msg"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method url()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodUrlStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validUrlInputs")
-    @DisplayName("url accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      String result = DataValidation.url(value);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validUrlInputs() {
-      return Stream.of(Arguments.of("valid url", "https://example.com"));
-    }
-  }
-
-  @Nested
-  @DisplayName("DataValidation Method url()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class DataValidationMethodUrlStringStringTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validUrlInputs")
-    @DisplayName("url accepts valid input")
-    void testAcceptsValidInput(String description, String value, String message) {
-      String result = DataValidation.url(value, message);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validUrlInputs() {
-      return Stream.of(Arguments.of("valid url", "https://example.com", "msg"));
+    @Nested
+    @DisplayName("DataValidation Method assertFalse()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertFalseBooleanTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertFalseInputs")
+        @DisplayName("assertFalse accepts valid input")
+        void testAcceptsValidInput(String description, Boolean value) {
+            Boolean result = DataValidation.assertFalse(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validAssertFalseInputs() {
+            return Stream.of(Arguments.of("valid assertFalse", false));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertFalse()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertFalseBoolean2Test {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertFalseInputs")
+        @DisplayName("assertFalse accepts valid input")
+        void testAcceptsValidInput(String description, boolean value) {
+            boolean result = DataValidation.assertFalse(value);
+        }
+
+        static Stream<Arguments> validAssertFalseInputs() {
+            return Stream.of(Arguments.of("valid assertFalse", false));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertFalse()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertFalseBooleanStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertFalseInputs")
+        @DisplayName("assertFalse accepts valid input")
+        void testAcceptsValidInput(String description, Boolean value, String message) {
+            Boolean result = DataValidation.assertFalse(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validAssertFalseInputs() {
+            return Stream.of(Arguments.of("valid assertFalse", false, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertFalse()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertFalseBooleanString2Test {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertFalseInputs")
+        @DisplayName("assertFalse accepts valid input")
+        void testAcceptsValidInput(String description, boolean value, String message) {
+            boolean result = DataValidation.assertFalse(value, message);
+        }
+
+        static Stream<Arguments> validAssertFalseInputs() {
+            return Stream.of(Arguments.of("valid assertFalse", false, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertTrue()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertTrueBooleanTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertTrueInputs")
+        @DisplayName("assertTrue accepts valid input")
+        void testAcceptsValidInput(String description, boolean value) {
+            boolean result = DataValidation.assertTrue(value);
+        }
+
+        static Stream<Arguments> validAssertTrueInputs() {
+            return Stream.of(Arguments.of("valid assertTrue", true));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertTrue()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertTrueBoolean2Test {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertTrueInputs")
+        @DisplayName("assertTrue accepts valid input")
+        void testAcceptsValidInput(String description, Boolean value) {
+            Boolean result = DataValidation.assertTrue(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validAssertTrueInputs() {
+            return Stream.of(Arguments.of("valid assertTrue", true));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertTrue()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertTrueBooleanStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertTrueInputs")
+        @DisplayName("assertTrue accepts valid input")
+        void testAcceptsValidInput(String description, boolean value, String message) {
+            boolean result = DataValidation.assertTrue(value, message);
+        }
+
+        static Stream<Arguments> validAssertTrueInputs() {
+            return Stream.of(Arguments.of("valid assertTrue", true, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method assertTrue()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodAssertTrueBooleanString2Test {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validAssertTrueInputs")
+        @DisplayName("assertTrue accepts valid input")
+        void testAcceptsValidInput(String description, Boolean value, String message) {
+            Boolean result = DataValidation.assertTrue(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validAssertTrueInputs() {
+            return Stream.of(Arguments.of("valid assertTrue", true, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method creditCard()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodCreditCardStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validCreditCardInputs")
+        @DisplayName("creditCard accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.creditCard(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validCreditCardInputs() {
+            return Stream.of(Arguments.of("valid creditCard", "4111111111111111"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method creditCard()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodCreditCardStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validCreditCardInputs")
+        @DisplayName("creditCard accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.creditCard(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validCreditCardInputs() {
+            return Stream.of(Arguments.of("valid creditCard", "4111111111111111", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method decimalMax()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodDecimalMaxStringBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalMaxInputs")
+        @DisplayName("decimalMax accepts valid input")
+        void testAcceptsValidInput(String description, String max, BigDecimal value) {
+            BigDecimal result = DataValidation.decimalMax(max, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validDecimalMaxInputs() {
+            return Stream.of(Arguments.of("valid decimalMax", "10", new BigDecimal("1")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method decimalMax()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodDecimalMaxStringBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalMaxInputs")
+        @DisplayName("decimalMax accepts valid input")
+        void testAcceptsValidInput(String description, String max, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.decimalMax(max, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validDecimalMaxInputs() {
+            return Stream.of(Arguments.of("valid decimalMax", "10", new BigDecimal("1"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method decimalMin()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodDecimalMinStringBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalMinInputs")
+        @DisplayName("decimalMin accepts valid input")
+        void testAcceptsValidInput(String description, String min, BigDecimal value) {
+            BigDecimal result = DataValidation.decimalMin(min, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validDecimalMinInputs() {
+            return Stream.of(Arguments.of("valid decimalMin", "0.5", new BigDecimal("1")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method decimalMin()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodDecimalMinStringBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalMinInputs")
+        @DisplayName("decimalMin accepts valid input")
+        void testAcceptsValidInput(String description, String min, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.decimalMin(min, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validDecimalMinInputs() {
+            return Stream.of(Arguments.of("valid decimalMin", "0.5", new BigDecimal("1"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method digits()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodDigitsIntIntBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDigitsInputs")
+        @DisplayName("digits accepts valid input")
+        void testAcceptsValidInput(String description, int integer, int fraction, BigDecimal value) {
+            BigDecimal result = DataValidation.digits(integer, fraction, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validDigitsInputs() {
+            return Stream.of(Arguments.of("valid digits", 3, 2, new BigDecimal("1.5")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method digits()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodDigitsIntIntBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDigitsInputs")
+        @DisplayName("digits accepts valid input")
+        void testAcceptsValidInput(String description, int integer, int fraction, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.digits(integer, fraction, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validDigitsInputs() {
+            return Stream.of(Arguments.of("valid digits", 3, 2, new BigDecimal("1.5"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method ean()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodEanStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validEanInputs")
+        @DisplayName("ean accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.ean(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validEanInputs() {
+            return Stream.of(Arguments.of("valid ean", "4006381333931"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method ean()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodEanStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validEanInputs")
+        @DisplayName("ean accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.ean(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validEanInputs() {
+            return Stream.of(Arguments.of("valid ean", "4006381333931", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method email()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodEmailStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validEmailInputs")
+        @DisplayName("email accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.email(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validEmailInputs() {
+            return Stream.of(Arguments.of("valid email", "a@b.co"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method email()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodEmailStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validEmailInputs")
+        @DisplayName("email accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.email(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validEmailInputs() {
+            return Stream.of(Arguments.of("valid email", "a@b.co", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureLocalDateTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureInputs")
+        @DisplayName("future accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value) {
+            LocalDate result = DataValidation.future(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureInputs() {
+            return Stream.of(Arguments.of("valid future", LocalDate.of(2999, 1, 1)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureInstantTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureInputs")
+        @DisplayName("future accepts valid input")
+        void testAcceptsValidInput(String description, Instant value) {
+            Instant result = DataValidation.future(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureInputs() {
+            return Stream.of(Arguments.of("valid future", Instant.parse("2999-01-01T00:00:00Z")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureLocalDateTimeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureInputs")
+        @DisplayName("future accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value) {
+            LocalDateTime result = DataValidation.future(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureInputs() {
+            return Stream.of(Arguments.of("valid future", LocalDateTime.of(2999, 1, 1, 0, 0)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureInstantStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureInputs")
+        @DisplayName("future accepts valid input")
+        void testAcceptsValidInput(String description, Instant value, String message) {
+            Instant result = DataValidation.future(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureInputs() {
+            return Stream.of(Arguments.of("valid future", Instant.parse("2999-01-01T00:00:00Z"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureLocalDateStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureInputs")
+        @DisplayName("future accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value, String message) {
+            LocalDate result = DataValidation.future(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureInputs() {
+            return Stream.of(Arguments.of("valid future", LocalDate.of(2999, 1, 1), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureLocalDateTimeStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureInputs")
+        @DisplayName("future accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value, String message) {
+            LocalDateTime result = DataValidation.future(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureInputs() {
+            return Stream.of(Arguments.of("valid future", LocalDateTime.of(2999, 1, 1, 0, 0), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureOrPresentLocalDateTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureOrPresentInputs")
+        @DisplayName("futureOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value) {
+            LocalDate result = DataValidation.futureOrPresent(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureOrPresentInputs() {
+            return Stream.of(Arguments.of("valid futureOrPresent", LocalDate.of(2999, 1, 1)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureOrPresentLocalDateTimeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureOrPresentInputs")
+        @DisplayName("futureOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value) {
+            LocalDateTime result = DataValidation.futureOrPresent(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureOrPresentInputs() {
+            return Stream.of(Arguments.of("valid futureOrPresent", LocalDateTime.of(2999, 1, 1, 0, 0)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureOrPresentInstantTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureOrPresentInputs")
+        @DisplayName("futureOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, Instant value) {
+            Instant result = DataValidation.futureOrPresent(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureOrPresentInputs() {
+            return Stream.of(Arguments.of("valid futureOrPresent", Instant.parse("2999-01-01T00:00:00Z")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureOrPresentLocalDateStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureOrPresentInputs")
+        @DisplayName("futureOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value, String message) {
+            LocalDate result = DataValidation.futureOrPresent(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureOrPresentInputs() {
+            return Stream.of(Arguments.of("valid futureOrPresent", LocalDate.of(2999, 1, 1), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureOrPresentInstantStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureOrPresentInputs")
+        @DisplayName("futureOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, Instant value, String message) {
+            Instant result = DataValidation.futureOrPresent(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureOrPresentInputs() {
+            return Stream.of(Arguments.of("valid futureOrPresent", Instant.parse("2999-01-01T00:00:00Z"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodFutureOrPresentLocalDateTimeStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validFutureOrPresentInputs")
+        @DisplayName("futureOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value, String message) {
+            LocalDateTime result = DataValidation.futureOrPresent(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validFutureOrPresentInputs() {
+            return Stream.of(Arguments.of("valid futureOrPresent", LocalDateTime.of(2999, 1, 1, 0, 0), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method isNull()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodIsNullObjectTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validIsNullInputs")
+        @DisplayName("isNull accepts valid input")
+        void testAcceptsValidInput(String description, Object value) {
+            Object result = DataValidation.isNull(value);
+            assertThat(result).isNull();
+        }
+
+        static Stream<Arguments> validIsNullInputs() {
+            return Stream.of(Arguments.of("valid isNull", (Object) null));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method isNull()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodIsNullObjectStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validIsNullInputs")
+        @DisplayName("isNull accepts valid input")
+        void testAcceptsValidInput(String description, Object value, String message) {
+            Object result = DataValidation.isNull(value, message);
+            assertThat(result).isNull();
+        }
+
+        static Stream<Arguments> validIsNullInputs() {
+            return Stream.of(Arguments.of("valid isNull", (Object) null, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method isbn()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodIsbnStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validIsbnInputs")
+        @DisplayName("isbn accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.isbn(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validIsbnInputs() {
+            return Stream.of(Arguments.of("valid isbn", "9780306406157"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method isbn()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodIsbnStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validIsbnInputs")
+        @DisplayName("isbn accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.isbn(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validIsbnInputs() {
+            return Stream.of(Arguments.of("valid isbn", "9780306406157", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method length()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodLengthIntIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validLengthInputs")
+        @DisplayName("length accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max, String value) {
+            String result = DataValidation.length(min, max, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validLengthInputs() {
+            return Stream.of(Arguments.of("valid length", 1, 5, "abc"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method length()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodLengthIntIntStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validLengthInputs")
+        @DisplayName("length accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max, String value, String message) {
+            String result = DataValidation.length(min, max, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validLengthInputs() {
+            return Stream.of(Arguments.of("valid length", 1, 5, "abc", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongByteTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, byte value) {
+            byte result = DataValidation.max(max, value);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, (byte) 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongShortTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, short value) {
+            short result = DataValidation.max(max, value);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, (short) 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, BigDecimal value) {
+            BigDecimal result = DataValidation.max(max, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, new BigDecimal("1")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongLongTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, long value) {
+            long result = DataValidation.max(max, value);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1L));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongIntTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, int value) {
+            int result = DataValidation.max(max, value);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongDoubleTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, double value) {
+            double result = DataValidation.max(max, value);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1.0d));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongFloatTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, float value) {
+            float result = DataValidation.max(max, value);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1.0f));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongByteStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, byte value, String message) {
+            byte result = DataValidation.max(max, value, message);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, (byte) 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongShortStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, short value, String message) {
+            short result = DataValidation.max(max, value, message);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, (short) 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.max(max, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, new BigDecimal("1"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongDoubleStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, double value, String message) {
+            double result = DataValidation.max(max, value, message);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1.0d, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongLongStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, long value, String message) {
+            long result = DataValidation.max(max, value, message);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1L, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, int value, String message) {
+            int result = DataValidation.max(max, value, message);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMaxLongFloatStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max, float value, String message) {
+            float result = DataValidation.max(max, value, message);
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L, 1.0f, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongShortTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, short value) {
+            short result = DataValidation.min(min, value);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, (short) 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, BigDecimal value) {
+            BigDecimal result = DataValidation.min(min, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, new BigDecimal("1")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongLongTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, long value) {
+            long result = DataValidation.min(min, value);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1L));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongDoubleTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, double value) {
+            double result = DataValidation.min(min, value);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1.0d));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongIntTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, int value) {
+            int result = DataValidation.min(min, value);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongFloatTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, float value) {
+            float result = DataValidation.min(min, value);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1.0f));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongByteTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, byte value) {
+            byte result = DataValidation.min(min, value);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, (byte) 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.min(min, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, new BigDecimal("1"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongShortStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, short value, String message) {
+            short result = DataValidation.min(min, value, message);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, (short) 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongByteStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, byte value, String message) {
+            byte result = DataValidation.min(min, value, message);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, (byte) 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongLongStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, long value, String message) {
+            long result = DataValidation.min(min, value, message);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1L, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongDoubleStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, double value, String message) {
+            double result = DataValidation.min(min, value, message);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1.0d, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, int value, String message) {
+            int result = DataValidation.min(min, value, message);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodMinLongFloatStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min, float value, String message) {
+            float result = DataValidation.min(min, value, message);
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L, 1.0f, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeIntTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, int value) {
+            int result = DataValidation.negative(value);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeFloatTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, float value) {
+            float result = DataValidation.negative(value);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1.0f));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeDoubleTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, double value) {
+            double result = DataValidation.negative(value);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1.0d));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeLongTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, long value) {
+            long result = DataValidation.negative(value);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1L));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value) {
+            BigDecimal result = DataValidation.negative(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", new BigDecimal("-1")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.negative(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", new BigDecimal("-1"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, int value, String message) {
+            int result = DataValidation.negative(value, message);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeFloatStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, float value, String message) {
+            float result = DataValidation.negative(value, message);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1.0f, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeDoubleStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, double value, String message) {
+            double result = DataValidation.negative(value, message);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1.0d, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeLongStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeInputs")
+        @DisplayName("negative accepts valid input")
+        void testAcceptsValidInput(String description, long value, String message) {
+            long result = DataValidation.negative(value, message);
+        }
+
+        static Stream<Arguments> validNegativeInputs() {
+            return Stream.of(Arguments.of("valid negative", -1L, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroDoubleTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, double value) {
+            double result = DataValidation.negativeOrZero(value);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0.0d));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroLongTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, long value) {
+            long result = DataValidation.negativeOrZero(value);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0L));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroFloatTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, float value) {
+            float result = DataValidation.negativeOrZero(value);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0.0f));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value) {
+            BigDecimal result = DataValidation.negativeOrZero(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", new BigDecimal("0")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroIntTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, int value) {
+            int result = DataValidation.negativeOrZero(value);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroDoubleStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, double value, String message) {
+            double result = DataValidation.negativeOrZero(value, message);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0.0d, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroLongStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, long value, String message) {
+            long result = DataValidation.negativeOrZero(value, message);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0L, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, int value, String message) {
+            int result = DataValidation.negativeOrZero(value, message);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroFloatStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, float value, String message) {
+            float result = DataValidation.negativeOrZero(value, message);
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", 0.0f, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNegativeOrZeroBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNegativeOrZeroInputs")
+        @DisplayName("negativeOrZero accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.negativeOrZero(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNegativeOrZeroInputs() {
+            return Stream.of(Arguments.of("valid negativeOrZero", new BigDecimal("0"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notBlank()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotBlankStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotBlankInputs")
+        @DisplayName("notBlank accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.notBlank(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotBlankInputs() {
+            return Stream.of(Arguments.of("valid notBlank", "a"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notBlank()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotBlankStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotBlankInputs")
+        @DisplayName("notBlank accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.notBlank(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotBlankInputs() {
+            return Stream.of(Arguments.of("valid notBlank", "a", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notEmpty()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotEmptyCollectionTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotEmptyInputs")
+        @DisplayName("notEmpty accepts valid input")
+        void testAcceptsValidInput(String description, Collection value) {
+            Collection result = DataValidation.notEmpty(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotEmptyInputs() {
+            return Stream.of(Arguments.of("valid notEmpty", List.of(1)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notEmpty()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotEmptyStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotEmptyInputs")
+        @DisplayName("notEmpty accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.notEmpty(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotEmptyInputs() {
+            return Stream.of(Arguments.of("valid notEmpty", "a"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notEmpty()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotEmptyCollectionStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotEmptyInputs")
+        @DisplayName("notEmpty accepts valid input")
+        void testAcceptsValidInput(String description, Collection value, String message) {
+            Collection result = DataValidation.notEmpty(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotEmptyInputs() {
+            return Stream.of(Arguments.of("valid notEmpty", List.of(1), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notEmpty()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotEmptyStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotEmptyInputs")
+        @DisplayName("notEmpty accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.notEmpty(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotEmptyInputs() {
+            return Stream.of(Arguments.of("valid notEmpty", "a", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notNull()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotNullObjectTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotNullInputs")
+        @DisplayName("notNull accepts valid input")
+        void testAcceptsValidInput(String description, Object value) {
+            Object result = DataValidation.notNull(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotNullInputs() {
+            return Stream.of(Arguments.of("valid notNull", "x"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method notNull()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodNotNullObjectStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validNotNullInputs")
+        @DisplayName("notNull accepts valid input")
+        void testAcceptsValidInput(String description, Object value, String message) {
+            Object result = DataValidation.notNull(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validNotNullInputs() {
+            return Stream.of(Arguments.of("valid notNull", "x", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastLocalDateTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastInputs")
+        @DisplayName("past accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value) {
+            LocalDate result = DataValidation.past(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastInputs() {
+            return Stream.of(Arguments.of("valid past", LocalDate.of(2000, 1, 1)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastInstantTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastInputs")
+        @DisplayName("past accepts valid input")
+        void testAcceptsValidInput(String description, Instant value) {
+            Instant result = DataValidation.past(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastInputs() {
+            return Stream.of(Arguments.of("valid past", Instant.parse("2000-01-01T00:00:00Z")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastLocalDateTimeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastInputs")
+        @DisplayName("past accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value) {
+            LocalDateTime result = DataValidation.past(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastInputs() {
+            return Stream.of(Arguments.of("valid past", LocalDateTime.of(2000, 1, 1, 0, 0)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastLocalDateStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastInputs")
+        @DisplayName("past accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value, String message) {
+            LocalDate result = DataValidation.past(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastInputs() {
+            return Stream.of(Arguments.of("valid past", LocalDate.of(2000, 1, 1), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastInstantStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastInputs")
+        @DisplayName("past accepts valid input")
+        void testAcceptsValidInput(String description, Instant value, String message) {
+            Instant result = DataValidation.past(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastInputs() {
+            return Stream.of(Arguments.of("valid past", Instant.parse("2000-01-01T00:00:00Z"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastLocalDateTimeStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastInputs")
+        @DisplayName("past accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value, String message) {
+            LocalDateTime result = DataValidation.past(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastInputs() {
+            return Stream.of(Arguments.of("valid past", LocalDateTime.of(2000, 1, 1, 0, 0), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastOrPresentLocalDateTimeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastOrPresentInputs")
+        @DisplayName("pastOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value) {
+            LocalDateTime result = DataValidation.pastOrPresent(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastOrPresentInputs() {
+            return Stream.of(Arguments.of("valid pastOrPresent", LocalDateTime.of(2000, 1, 1, 0, 0)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastOrPresentInstantTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastOrPresentInputs")
+        @DisplayName("pastOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, Instant value) {
+            Instant result = DataValidation.pastOrPresent(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastOrPresentInputs() {
+            return Stream.of(Arguments.of("valid pastOrPresent", Instant.parse("2000-01-01T00:00:00Z")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastOrPresentLocalDateTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastOrPresentInputs")
+        @DisplayName("pastOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value) {
+            LocalDate result = DataValidation.pastOrPresent(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastOrPresentInputs() {
+            return Stream.of(Arguments.of("valid pastOrPresent", LocalDate.of(2000, 1, 1)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastOrPresentLocalDateTimeStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastOrPresentInputs")
+        @DisplayName("pastOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDateTime value, String message) {
+            LocalDateTime result = DataValidation.pastOrPresent(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastOrPresentInputs() {
+            return Stream.of(Arguments.of("valid pastOrPresent", LocalDateTime.of(2000, 1, 1, 0, 0), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastOrPresentLocalDateStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastOrPresentInputs")
+        @DisplayName("pastOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, LocalDate value, String message) {
+            LocalDate result = DataValidation.pastOrPresent(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastOrPresentInputs() {
+            return Stream.of(Arguments.of("valid pastOrPresent", LocalDate.of(2000, 1, 1), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPastOrPresentInstantStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPastOrPresentInputs")
+        @DisplayName("pastOrPresent accepts valid input")
+        void testAcceptsValidInput(String description, Instant value, String message) {
+            Instant result = DataValidation.pastOrPresent(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPastOrPresentInputs() {
+            return Stream.of(Arguments.of("valid pastOrPresent", Instant.parse("2000-01-01T00:00:00Z"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pattern()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPatternStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPatternInputs")
+        @DisplayName("pattern accepts valid input")
+        void testAcceptsValidInput(String description, String regexp, String value) {
+            String result = DataValidation.pattern(regexp, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPatternInputs() {
+            return Stream.of(Arguments.of("valid pattern", "[a-z]+", "abc"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method pattern()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPatternStringStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPatternInputs")
+        @DisplayName("pattern accepts valid input")
+        void testAcceptsValidInput(String description, String regexp, String value, String message) {
+            String result = DataValidation.pattern(regexp, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPatternInputs() {
+            return Stream.of(Arguments.of("valid pattern", "[a-z]+", "abc", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveLongTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, long value) {
+            long result = DataValidation.positive(value);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1L));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveIntTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, int value) {
+            int result = DataValidation.positive(value);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveFloatTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, float value) {
+            float result = DataValidation.positive(value);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1.0f));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value) {
+            BigDecimal result = DataValidation.positive(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", new BigDecimal("1")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveDoubleTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, double value) {
+            double result = DataValidation.positive(value);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1.0d));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, int value, String message) {
+            int result = DataValidation.positive(value, message);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveLongStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, long value, String message) {
+            long result = DataValidation.positive(value, message);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1L, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveFloatStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, float value, String message) {
+            float result = DataValidation.positive(value, message);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1.0f, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.positive(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", new BigDecimal("1"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveDoubleStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveInputs")
+        @DisplayName("positive accepts valid input")
+        void testAcceptsValidInput(String description, double value, String message) {
+            double result = DataValidation.positive(value, message);
+        }
+
+        static Stream<Arguments> validPositiveInputs() {
+            return Stream.of(Arguments.of("valid positive", 1.0d, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroLongTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, long value) {
+            long result = DataValidation.positiveOrZero(value);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0L));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroDoubleTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, double value) {
+            double result = DataValidation.positiveOrZero(value);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0.0d));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroFloatTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, float value) {
+            float result = DataValidation.positiveOrZero(value);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0.0f));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroBigDecimalTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value) {
+            BigDecimal result = DataValidation.positiveOrZero(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", new BigDecimal("0")));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroIntTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, int value) {
+            int result = DataValidation.positiveOrZero(value);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroDoubleStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, double value, String message) {
+            double result = DataValidation.positiveOrZero(value, message);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0.0d, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroFloatStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, float value, String message) {
+            float result = DataValidation.positiveOrZero(value, message);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0.0f, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroBigDecimalStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, BigDecimal value, String message) {
+            BigDecimal result = DataValidation.positiveOrZero(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", new BigDecimal("0"), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, int value, String message) {
+            int result = DataValidation.positiveOrZero(value, message);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodPositiveOrZeroLongStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPositiveOrZeroInputs")
+        @DisplayName("positiveOrZero accepts valid input")
+        void testAcceptsValidInput(String description, long value, String message) {
+            long result = DataValidation.positiveOrZero(value, message);
+        }
+
+        static Stream<Arguments> validPositiveOrZeroInputs() {
+            return Stream.of(Arguments.of("valid positiveOrZero", 0L, "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method size()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodSizeIntIntStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSizeInputs")
+        @DisplayName("size accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max, String value) {
+            String result = DataValidation.size(min, max, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSizeInputs() {
+            return Stream.of(Arguments.of("valid size", 1, 5, "abc"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method size()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodSizeIntIntCollectionTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSizeInputs")
+        @DisplayName("size accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max, Collection value) {
+            Collection result = DataValidation.size(min, max, value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSizeInputs() {
+            return Stream.of(Arguments.of("valid size", 1, 5, List.of(1, 2)));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method size()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodSizeIntIntStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSizeInputs")
+        @DisplayName("size accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max, String value, String message) {
+            String result = DataValidation.size(min, max, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSizeInputs() {
+            return Stream.of(Arguments.of("valid size", 1, 5, "abc", "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method size()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodSizeIntIntCollectionStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSizeInputs")
+        @DisplayName("size accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max, Collection value, String message) {
+            Collection result = DataValidation.size(min, max, value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSizeInputs() {
+            return Stream.of(Arguments.of("valid size", 1, 5, List.of(1), "msg"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method url()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodUrlStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validUrlInputs")
+        @DisplayName("url accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            String result = DataValidation.url(value);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validUrlInputs() {
+            return Stream.of(Arguments.of("valid url", "https://example.com"));
+        }
+    }
+
+    @Nested
+    @DisplayName("DataValidation Method url()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class DataValidationMethodUrlStringStringTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validUrlInputs")
+        @DisplayName("url accepts valid input")
+        void testAcceptsValidInput(String description, String value, String message) {
+            String result = DataValidation.url(value, message);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validUrlInputs() {
+            return Stream.of(Arguments.of("valid url", "https://example.com", "msg"));
+        }
     }
-  }
 }
