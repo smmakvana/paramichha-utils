@@ -1,15 +1,14 @@
 package com.paramichha.utils;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.List;
-import java.util.stream.Stream;
-
 import static com.paramichha.utils.Cases.Returns;
 import static com.paramichha.utils.Cases.ok;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /** Texts cases: blanks, null and empty conversions, capitalization, case styles, comparison. */
 @DisplayName("Texts cases")

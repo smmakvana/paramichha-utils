@@ -2,6 +2,8 @@
 // Regenerate: TestKit.of(Seeds.class).generateTest().writeTo(...)
 package com.paramichha.utils;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Random;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
@@ -12,81 +14,80 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Seeds")
 class SeedsTest {
 
-  @Nested
-  @DisplayName("Seeds Method random()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class SeedsMethodRandomTest {
+    @Nested
+    @DisplayName("Seeds Method random()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class SeedsMethodRandomTest {
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validRandomInputs")
-    @DisplayName("random accepts valid input")
-    void testAcceptsValidInput(String description, long seed) {
-      Random result = Seeds.random(seed);
-      assertThat(result).isNotNull();
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validRandomInputs")
+        @DisplayName("random accepts valid input")
+        void testAcceptsValidInput(String description, long seed) {
+            Random result = Seeds.random(seed);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validRandomInputs() {
+            return Stream.of(Arguments.of("valid random", 1L));
+        }
     }
 
-    static Stream<Arguments> validRandomInputs() {
-      return Stream.of(Arguments.of("valid random", 1L));
-    }
-  }
+    @Nested
+    @DisplayName("Seeds Method stableHash()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class SeedsMethodStableHashStringTest {
 
-  @Nested
-  @DisplayName("Seeds Method stableHash()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class SeedsMethodStableHashStringTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validStableHashInputs")
+        @DisplayName("stableHash accepts valid input")
+        void testAcceptsValidInput(String description, String value) {
+            long result = Seeds.stableHash(value);
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validStableHashInputs")
-    @DisplayName("stableHash accepts valid input")
-    void testAcceptsValidInput(String description, String value) {
-      long result = Seeds.stableHash(value);
-    }
-
-    static Stream<Arguments> validStableHashInputs() {
-      return Stream.of(Arguments.of("valid stableHash", "x"));
-    }
-  }
-
-  @Nested
-  @DisplayName("Seeds Method stableHash()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class SeedsMethodStableHashStringArrayTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validStableHashInputs")
-    @DisplayName("stableHash accepts valid input")
-    void testAcceptsValidInput(String description, String[] parts) {
-      long result = Seeds.stableHash(parts);
+        static Stream<Arguments> validStableHashInputs() {
+            return Stream.of(Arguments.of("valid stableHash", "x"));
+        }
     }
 
-    static Stream<Arguments> validStableHashInputs() {
-      return Stream.of(Arguments.of("valid stableHash", new String[] {"x"}));
-    }
-  }
+    @Nested
+    @DisplayName("Seeds Method stableHash()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class SeedsMethodStableHashStringArrayTest {
 
-  @Nested
-  @DisplayName("Seeds Method stableHash()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class SeedsMethodStableHashClassTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validStableHashInputs")
+        @DisplayName("stableHash accepts valid input")
+        void testAcceptsValidInput(String description, String[] parts) {
+            long result = Seeds.stableHash(parts);
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validStableHashInputs")
-    @DisplayName("stableHash accepts valid input")
-    void testAcceptsValidInput(String description, Class type) {
-      long result = Seeds.stableHash(type);
+        static Stream<Arguments> validStableHashInputs() {
+            return Stream.of(Arguments.of("valid stableHash", new String[] {"x"}));
+        }
     }
 
-    static Stream<Arguments> validStableHashInputs() {
-      return Stream.of(Arguments.of("valid stableHash", String.class));
+    @Nested
+    @DisplayName("Seeds Method stableHash()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class SeedsMethodStableHashClassTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validStableHashInputs")
+        @DisplayName("stableHash accepts valid input")
+        void testAcceptsValidInput(String description, Class type) {
+            long result = Seeds.stableHash(type);
+        }
+
+        static Stream<Arguments> validStableHashInputs() {
+            return Stream.of(Arguments.of("valid stableHash", String.class));
+        }
     }
-  }
 }

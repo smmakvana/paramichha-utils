@@ -2,6 +2,8 @@
 // Regenerate: TestKit.of(Boundary.class).generateTest().writeTo(...)
 package com.paramichha.utils;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.MethodOrderer;
@@ -12,408 +14,407 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Boundary")
 class BoundaryTest {
 
-  @Nested
-  @DisplayName("Boundary Method assertFalse()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodAssertFalseTest {
+    @Nested
+    @DisplayName("Boundary Method assertFalse()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodAssertFalseTest {
 
-    @Test
-    @DisplayName("assertFalse returns a value")
-    void testReturnsResult() {
-      Boundary.BooleanBoundary result = Boundary.assertFalse();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method assertTrue()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodAssertTrueTest {
-
-    @Test
-    @DisplayName("assertTrue returns a value")
-    void testReturnsResult() {
-      Boundary.BooleanBoundary result = Boundary.assertTrue();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method decimalMax()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodDecimalMaxTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalMaxInputs")
-    @DisplayName("decimalMax accepts valid input")
-    void testAcceptsValidInput(String description, String max) {
-      Boundary.DecimalBoundary result = Boundary.decimalMax(max);
-      assertThat(result).isNotNull();
+        @Test
+        @DisplayName("assertFalse returns a value")
+        void testReturnsResult() {
+            Boundary.BooleanBoundary result = Boundary.assertFalse();
+            assertThat(result).isNotNull();
+        }
     }
 
-    static Stream<Arguments> validDecimalMaxInputs() {
-      return Stream.of(Arguments.of("valid decimalMax", "10.5"));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method assertTrue()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodAssertTrueTest {
 
-  @Nested
-  @DisplayName("Boundary Method decimalMin()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodDecimalMinTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalMinInputs")
-    @DisplayName("decimalMin accepts valid input")
-    void testAcceptsValidInput(String description, String min) {
-      Boundary.DecimalBoundary result = Boundary.decimalMin(min);
-      assertThat(result).isNotNull();
+        @Test
+        @DisplayName("assertTrue returns a value")
+        void testReturnsResult() {
+            Boundary.BooleanBoundary result = Boundary.assertTrue();
+            assertThat(result).isNotNull();
+        }
     }
 
-    static Stream<Arguments> validDecimalMinInputs() {
-      return Stream.of(Arguments.of("valid decimalMin", "0.5"));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method decimalMax()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodDecimalMaxTest {
 
-  @Nested
-  @DisplayName("Boundary Method decimalPositive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodDecimalPositiveTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalMaxInputs")
+        @DisplayName("decimalMax accepts valid input")
+        void testAcceptsValidInput(String description, String max) {
+            Boundary.DecimalBoundary result = Boundary.decimalMax(max);
+            assertThat(result).isNotNull();
+        }
 
-    @Test
-    @DisplayName("decimalPositive returns a value")
-    void testReturnsResult() {
-      Boundary.DecimalBoundary result = Boundary.decimalPositive();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method decimalRange()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodDecimalRangeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDecimalRangeInputs")
-    @DisplayName("decimalRange accepts valid input")
-    void testAcceptsValidInput(String description, String min, String max) {
-      Boundary.DecimalBoundary result = Boundary.decimalRange(min, max);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validDecimalMaxInputs() {
+            return Stream.of(Arguments.of("valid decimalMax", "10.5"));
+        }
     }
 
-    static Stream<Arguments> validDecimalRangeInputs() {
-      return Stream.of(Arguments.of("valid decimalRange", "0", "10"));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method decimalMin()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodDecimalMinTest {
 
-  @Nested
-  @DisplayName("Boundary Method digits()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodDigitsTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalMinInputs")
+        @DisplayName("decimalMin accepts valid input")
+        void testAcceptsValidInput(String description, String min) {
+            Boundary.DecimalBoundary result = Boundary.decimalMin(min);
+            assertThat(result).isNotNull();
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validDigitsInputs")
-    @DisplayName("digits accepts valid input")
-    void testAcceptsValidInput(String description, int integer, int fraction) {
-      Boundary.DecimalBoundary result = Boundary.digits(integer, fraction);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validDigitsInputs() {
-      return Stream.of(Arguments.of("valid digits", 3, 2));
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method email()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodEmailTest {
-
-    @Test
-    @DisplayName("email returns a value")
-    void testReturnsResult() {
-      Boundary.StringBoundary result = Boundary.email();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method future()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodFutureTest {
-
-    @Test
-    @DisplayName("future returns a value")
-    void testReturnsResult() {
-      Boundary.TemporalBoundary result = Boundary.future();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method futureOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodFutureOrPresentTest {
-
-    @Test
-    @DisplayName("futureOrPresent returns a value")
-    void testReturnsResult() {
-      Boundary.TemporalBoundary result = Boundary.futureOrPresent();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method length()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodLengthTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validLengthInputs")
-    @DisplayName("length accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max) {
-      Boundary.StringBoundary result = Boundary.length(min, max);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validDecimalMinInputs() {
+            return Stream.of(Arguments.of("valid decimalMin", "0.5"));
+        }
     }
 
-    static Stream<Arguments> validLengthInputs() {
-      return Stream.of(Arguments.of("valid length", 1, 5));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method decimalPositive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodDecimalPositiveTest {
 
-  @Nested
-  @DisplayName("Boundary Method max()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodMaxTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMaxInputs")
-    @DisplayName("max accepts valid input")
-    void testAcceptsValidInput(String description, long max) {
-      Boundary.NumericBoundary result = Boundary.max(max);
-      assertThat(result).isNotNull();
+        @Test
+        @DisplayName("decimalPositive returns a value")
+        void testReturnsResult() {
+            Boundary.DecimalBoundary result = Boundary.decimalPositive();
+            assertThat(result).isNotNull();
+        }
     }
 
-    static Stream<Arguments> validMaxInputs() {
-      return Stream.of(Arguments.of("valid max", 10L));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method decimalRange()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodDecimalRangeTest {
 
-  @Nested
-  @DisplayName("Boundary Method min()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodMinTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDecimalRangeInputs")
+        @DisplayName("decimalRange accepts valid input")
+        void testAcceptsValidInput(String description, String min, String max) {
+            Boundary.DecimalBoundary result = Boundary.decimalRange(min, max);
+            assertThat(result).isNotNull();
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validMinInputs")
-    @DisplayName("min accepts valid input")
-    void testAcceptsValidInput(String description, long min) {
-      Boundary.NumericBoundary result = Boundary.min(min);
-      assertThat(result).isNotNull();
-    }
-
-    static Stream<Arguments> validMinInputs() {
-      return Stream.of(Arguments.of("valid min", 0L));
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method negative()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodNegativeTest {
-
-    @Test
-    @DisplayName("negative returns a value")
-    void testReturnsResult() {
-      Boundary.NumericBoundary result = Boundary.negative();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method negativeOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodNegativeOrZeroTest {
-
-    @Test
-    @DisplayName("negativeOrZero returns a value")
-    void testReturnsResult() {
-      Boundary.NumericBoundary result = Boundary.negativeOrZero();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method notBlank()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodNotBlankTest {
-
-    @Test
-    @DisplayName("notBlank returns a value")
-    void testReturnsResult() {
-      Boundary.StringBoundary result = Boundary.notBlank();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method notEmpty()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodNotEmptyTest {
-
-    @Test
-    @DisplayName("notEmpty returns a value")
-    void testReturnsResult() {
-      Boundary.StringBoundary result = Boundary.notEmpty();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method past()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodPastTest {
-
-    @Test
-    @DisplayName("past returns a value")
-    void testReturnsResult() {
-      Boundary.TemporalBoundary result = Boundary.past();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method pastOrPresent()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodPastOrPresentTest {
-
-    @Test
-    @DisplayName("pastOrPresent returns a value")
-    void testReturnsResult() {
-      Boundary.TemporalBoundary result = Boundary.pastOrPresent();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method pattern()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodPatternTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validPatternInputs")
-    @DisplayName("pattern accepts valid input")
-    void testAcceptsValidInput(String description, String regexp) {
-      Boundary.StringBoundary result = Boundary.pattern(regexp);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validDecimalRangeInputs() {
+            return Stream.of(Arguments.of("valid decimalRange", "0", "10"));
+        }
     }
 
-    static Stream<Arguments> validPatternInputs() {
-      return Stream.of(Arguments.of("valid pattern", "[a-z]+"));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method digits()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodDigitsTest {
 
-  @Nested
-  @DisplayName("Boundary Method positive()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodPositiveTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validDigitsInputs")
+        @DisplayName("digits accepts valid input")
+        void testAcceptsValidInput(String description, int integer, int fraction) {
+            Boundary.DecimalBoundary result = Boundary.digits(integer, fraction);
+            assertThat(result).isNotNull();
+        }
 
-    @Test
-    @DisplayName("positive returns a value")
-    void testReturnsResult() {
-      Boundary.NumericBoundary result = Boundary.positive();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method positiveOrZero()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodPositiveOrZeroTest {
-
-    @Test
-    @DisplayName("positiveOrZero returns a value")
-    void testReturnsResult() {
-      Boundary.NumericBoundary result = Boundary.positiveOrZero();
-      assertThat(result).isNotNull();
-    }
-  }
-
-  @Nested
-  @DisplayName("Boundary Method range()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodRangeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validRangeInputs")
-    @DisplayName("range accepts valid input")
-    void testAcceptsValidInput(String description, long min, long max) {
-      Boundary.NumericBoundary result = Boundary.range(min, max);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validDigitsInputs() {
+            return Stream.of(Arguments.of("valid digits", 3, 2));
+        }
     }
 
-    static Stream<Arguments> validRangeInputs() {
-      return Stream.of(Arguments.of("valid range", 0L, 10L));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method email()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodEmailTest {
 
-  @Nested
-  @DisplayName("Boundary Method size()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodSizeTest {
-
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validSizeInputs")
-    @DisplayName("size accepts valid input")
-    void testAcceptsValidInput(String description, int min, int max) {
-      Boundary.StringBoundary result = Boundary.size(min, max);
-      assertThat(result).isNotNull();
+        @Test
+        @DisplayName("email returns a value")
+        void testReturnsResult() {
+            Boundary.StringBoundary result = Boundary.email();
+            assertThat(result).isNotNull();
+        }
     }
 
-    static Stream<Arguments> validSizeInputs() {
-      return Stream.of(Arguments.of("valid size", 1, 5));
-    }
-  }
+    @Nested
+    @DisplayName("Boundary Method future()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodFutureTest {
 
-  @Nested
-  @DisplayName("Boundary Method url()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class BoundaryMethodUrlTest {
-
-    @Test
-    @DisplayName("url returns a value")
-    void testReturnsResult() {
-      Boundary.StringBoundary result = Boundary.url();
-      assertThat(result).isNotNull();
+        @Test
+        @DisplayName("future returns a value")
+        void testReturnsResult() {
+            Boundary.TemporalBoundary result = Boundary.future();
+            assertThat(result).isNotNull();
+        }
     }
-  }
+
+    @Nested
+    @DisplayName("Boundary Method futureOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodFutureOrPresentTest {
+
+        @Test
+        @DisplayName("futureOrPresent returns a value")
+        void testReturnsResult() {
+            Boundary.TemporalBoundary result = Boundary.futureOrPresent();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method length()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodLengthTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validLengthInputs")
+        @DisplayName("length accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max) {
+            Boundary.StringBoundary result = Boundary.length(min, max);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validLengthInputs() {
+            return Stream.of(Arguments.of("valid length", 1, 5));
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method max()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodMaxTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMaxInputs")
+        @DisplayName("max accepts valid input")
+        void testAcceptsValidInput(String description, long max) {
+            Boundary.NumericBoundary result = Boundary.max(max);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validMaxInputs() {
+            return Stream.of(Arguments.of("valid max", 10L));
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method min()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodMinTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validMinInputs")
+        @DisplayName("min accepts valid input")
+        void testAcceptsValidInput(String description, long min) {
+            Boundary.NumericBoundary result = Boundary.min(min);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validMinInputs() {
+            return Stream.of(Arguments.of("valid min", 0L));
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method negative()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodNegativeTest {
+
+        @Test
+        @DisplayName("negative returns a value")
+        void testReturnsResult() {
+            Boundary.NumericBoundary result = Boundary.negative();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method negativeOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodNegativeOrZeroTest {
+
+        @Test
+        @DisplayName("negativeOrZero returns a value")
+        void testReturnsResult() {
+            Boundary.NumericBoundary result = Boundary.negativeOrZero();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method notBlank()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodNotBlankTest {
+
+        @Test
+        @DisplayName("notBlank returns a value")
+        void testReturnsResult() {
+            Boundary.StringBoundary result = Boundary.notBlank();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method notEmpty()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodNotEmptyTest {
+
+        @Test
+        @DisplayName("notEmpty returns a value")
+        void testReturnsResult() {
+            Boundary.StringBoundary result = Boundary.notEmpty();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method past()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodPastTest {
+
+        @Test
+        @DisplayName("past returns a value")
+        void testReturnsResult() {
+            Boundary.TemporalBoundary result = Boundary.past();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method pastOrPresent()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodPastOrPresentTest {
+
+        @Test
+        @DisplayName("pastOrPresent returns a value")
+        void testReturnsResult() {
+            Boundary.TemporalBoundary result = Boundary.pastOrPresent();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method pattern()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodPatternTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validPatternInputs")
+        @DisplayName("pattern accepts valid input")
+        void testAcceptsValidInput(String description, String regexp) {
+            Boundary.StringBoundary result = Boundary.pattern(regexp);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validPatternInputs() {
+            return Stream.of(Arguments.of("valid pattern", "[a-z]+"));
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method positive()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodPositiveTest {
+
+        @Test
+        @DisplayName("positive returns a value")
+        void testReturnsResult() {
+            Boundary.NumericBoundary result = Boundary.positive();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method positiveOrZero()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodPositiveOrZeroTest {
+
+        @Test
+        @DisplayName("positiveOrZero returns a value")
+        void testReturnsResult() {
+            Boundary.NumericBoundary result = Boundary.positiveOrZero();
+            assertThat(result).isNotNull();
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method range()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodRangeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validRangeInputs")
+        @DisplayName("range accepts valid input")
+        void testAcceptsValidInput(String description, long min, long max) {
+            Boundary.NumericBoundary result = Boundary.range(min, max);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validRangeInputs() {
+            return Stream.of(Arguments.of("valid range", 0L, 10L));
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method size()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodSizeTest {
+
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validSizeInputs")
+        @DisplayName("size accepts valid input")
+        void testAcceptsValidInput(String description, int min, int max) {
+            Boundary.StringBoundary result = Boundary.size(min, max);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validSizeInputs() {
+            return Stream.of(Arguments.of("valid size", 1, 5));
+        }
+    }
+
+    @Nested
+    @DisplayName("Boundary Method url()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class BoundaryMethodUrlTest {
+
+        @Test
+        @DisplayName("url returns a value")
+        void testReturnsResult() {
+            Boundary.StringBoundary result = Boundary.url();
+            assertThat(result).isNotNull();
+        }
+    }
 }

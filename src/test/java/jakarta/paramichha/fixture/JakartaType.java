@@ -5,6 +5,5 @@ package jakarta.paramichha.fixture;
  * without adding a Jakarta dependency to this dependency-free library.
  */
 public final class JakartaType {
-    private JakartaType() {
-    }
+    private JakartaType() {}
 }

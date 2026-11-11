@@ -1,19 +1,26 @@
 package com.paramichha.utils;
 
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Modifier;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 /** Every helper is a final class of static methods whose only constructor is private. */
 class UtilityClassesTest {
 
     @ParameterizedTest
-    @ValueSource(classes = {Boundary.class, DataValidation.class, Guard.class, JavaTypes.class,
-            Seeds.class, Texts.class, Tokens.class})
+    @ValueSource(
+            classes = {
+                Boundary.class,
+                DataValidation.class,
+                Guard.class,
+                JavaTypes.class,
+                Seeds.class,
+                Texts.class,
+                Tokens.class
+            })
     void cannotBeInstantiatedOrExtended(Class<?> type) throws Exception {
         assertThat(Modifier.isFinal(type.getModifiers())).isTrue();
         Constructor<?>[] constructors = type.getDeclaredConstructors();

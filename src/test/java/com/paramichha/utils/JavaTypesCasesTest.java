@@ -1,8 +1,8 @@
 package com.paramichha.utils;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
+import static com.paramichha.utils.Cases.Returns;
+import static com.paramichha.utils.Cases.ok;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -17,20 +17,21 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Stream;
-
-import static com.paramichha.utils.Cases.Returns;
-import static com.paramichha.utils.Cases.ok;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /** JavaTypes cases: primitives, wrappers, type kinds, collections, package classification, names. */
 @DisplayName("JavaTypes cases")
 class JavaTypesCasesTest {
 
-    enum Colour { RED }
+    enum Colour {
+        RED
+    }
 
-    record Point(int x) { }
+    record Point(int x) {}
 
-    static class Inner { }
+    static class Inner {}
 
     static Stream<Returns> returns() {
         return Stream.of(
@@ -108,9 +109,10 @@ class JavaTypesCasesTest {
                 // source names
                 ok("null has the name Object", () -> JavaTypes.sourceName(null), "Object"),
                 ok("String's source name", () -> JavaTypes.sourceName(String.class), "String"),
-                ok("a nested class's source name", () -> JavaTypes.sourceName(Inner.class),
-                        "JavaTypesCasesTest.Inner"),
-                ok("an array of a nested class", () -> JavaTypes.sourceName(Inner[].class),
+                ok("a nested class's source name", () -> JavaTypes.sourceName(Inner.class), "JavaTypesCasesTest.Inner"),
+                ok(
+                        "an array of a nested class",
+                        () -> JavaTypes.sourceName(Inner[].class),
                         "JavaTypesCasesTest.Inner[]"),
                 ok("int[] source name", () -> JavaTypes.sourceName(int[].class), "int[]"),
                 ok("boxed name of long", () -> JavaTypes.boxedSourceName(long.class), "Long"),

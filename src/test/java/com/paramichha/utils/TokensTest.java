@@ -2,6 +2,8 @@
 // Regenerate: TestKit.of(Tokens.class).generateTest().writeTo(...)
 package com.paramichha.utils;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Map;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
@@ -12,47 +14,45 @@ import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Tokens")
 class TokensTest {
 
-  @Nested
-  @DisplayName("Tokens Method resolve()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TokensMethodResolveStringMapTest {
+    @Nested
+    @DisplayName("Tokens Method resolve()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TokensMethodResolveStringMapTest {
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validResolveInputs")
-    @DisplayName("resolve accepts valid input")
-    void testAcceptsValidInput(String description, String template, Map values) {
-      String result = Tokens.resolve(template, values);
-      assertThat(result).isNotNull();
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validResolveInputs")
+        @DisplayName("resolve accepts valid input")
+        void testAcceptsValidInput(String description, String template, Map values) {
+            String result = Tokens.resolve(template, values);
+            assertThat(result).isNotNull();
+        }
+
+        static Stream<Arguments> validResolveInputs() {
+            return Stream.of(Arguments.of("valid resolve", "Hi {name}", Map.ofEntries(Map.entry("name", "x"))));
+        }
     }
 
-    static Stream<Arguments> validResolveInputs() {
-      return Stream.of(
-          Arguments.of("valid resolve", "Hi {name}", Map.ofEntries(Map.entry("name", "x"))));
-    }
-  }
+    @Nested
+    @DisplayName("Tokens Method resolve()")
+    @Tag("method")
+    @TestMethodOrder(MethodOrderer.MethodName.class)
+    class TokensMethodResolveStringStringArrayTest {
 
-  @Nested
-  @DisplayName("Tokens Method resolve()")
-  @Tag("method")
-  @TestMethodOrder(MethodOrderer.MethodName.class)
-  class TokensMethodResolveStringStringArrayTest {
+        @ParameterizedTest(name = "{0}")
+        @MethodSource("validResolveInputs")
+        @DisplayName("resolve accepts valid input")
+        void testAcceptsValidInput(String description, String template, String[] keyValues) {
+            String result = Tokens.resolve(template, keyValues);
+            assertThat(result).isNotNull();
+        }
 
-    @ParameterizedTest(name = "{0}")
-    @MethodSource("validResolveInputs")
-    @DisplayName("resolve accepts valid input")
-    void testAcceptsValidInput(String description, String template, String[] keyValues) {
-      String result = Tokens.resolve(template, keyValues);
-      assertThat(result).isNotNull();
+        static Stream<Arguments> validResolveInputs() {
+            return Stream.of(Arguments.of("valid resolve", "Hi {name}", new String[] {"name", "x"}));
+        }
     }
-
-    static Stream<Arguments> validResolveInputs() {
-      return Stream.of(Arguments.of("valid resolve", "Hi {name}", new String[] {"name", "x"}));
-    }
-  }
 }
