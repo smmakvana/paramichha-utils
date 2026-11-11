@@ -15,7 +15,9 @@ public final class Tokens {
      * </pre>
      */
     public static String resolve(String template, Map<String, ?> values) {
-        if (template == null || values == null) return template;
+        if (template == null || values == null) {
+            return template;
+        }
         String result = template;
         for (Map.Entry<String, ?> entry : values.entrySet()) {
             result = result.replace("{" + entry.getKey() + "}", String.valueOf(entry.getValue()));
@@ -40,8 +42,12 @@ public final class Tokens {
      * @throws IllegalArgumentException if keyValues length is not even
      */
     public static String resolve(String template, String... keyValues) {
-        if (template == null) return null;
-        if (keyValues == null || keyValues.length == 0) return template;
+        if (template == null) {
+            return null;
+        }
+        if (keyValues == null || keyValues.length == 0) {
+            return template;
+        }
         if (keyValues.length % 2 != 0) {
             throw new IllegalArgumentException(
                     "keyValues must be alternating key-value pairs, got " + keyValues.length + " args");

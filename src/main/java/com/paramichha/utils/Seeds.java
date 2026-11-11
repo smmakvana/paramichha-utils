@@ -12,7 +12,9 @@ public final class Seeds {
      * across JVM versions and implementations.
      */
     public static long stableHash(String value) {
-        if (value == null) return 0L;
+        if (value == null) {
+            return 0L;
+        }
         long hash = 1125899906842597L;
         for (char c : value.toCharArray()) {
             hash = 31 * hash + c;

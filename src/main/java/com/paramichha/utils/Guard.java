@@ -27,7 +27,9 @@ public final class Guard {
      * @return the trimmed value
      */
     public static String notBlank(String value, String name) {
-        if (value == null || value.isBlank()) throw new IllegalArgumentException(name + " must not be blank");
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException(name + " must not be blank");
+        }
         return value.trim();
     }
 
@@ -36,7 +38,9 @@ public final class Guard {
      * @return the value
      */
     public static String notEmpty(String value, String name) {
-        if (value == null || value.isEmpty()) throw new IllegalArgumentException(name + " must not be empty");
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException(name + " must not be empty");
+        }
         return value;
     }
 
@@ -49,7 +53,9 @@ public final class Guard {
      * @return the collection
      */
     public static <T extends Collection<?>> T notEmpty(T value, String name) {
-        if (value == null || value.isEmpty()) throw new IllegalArgumentException(name + " must not be empty");
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException(name + " must not be empty");
+        }
         return value;
     }
 
@@ -62,7 +68,9 @@ public final class Guard {
      * @return the value
      */
     public static int positive(int value, String name) {
-        if (value <= 0) throw new IllegalArgumentException(name + " must be positive, got: " + value);
+        if (value <= 0) {
+            throw new IllegalArgumentException(name + " must be positive, got: " + value);
+        }
         return value;
     }
 
@@ -71,7 +79,9 @@ public final class Guard {
      * @return the value
      */
     public static long positive(long value, String name) {
-        if (value <= 0) throw new IllegalArgumentException(name + " must be positive, got: " + value);
+        if (value <= 0) {
+            throw new IllegalArgumentException(name + " must be positive, got: " + value);
+        }
         return value;
     }
 
@@ -80,7 +90,9 @@ public final class Guard {
      * @return the value
      */
     public static int notNegative(int value, String name) {
-        if (value < 0) throw new IllegalArgumentException(name + " must not be negative, got: " + value);
+        if (value < 0) {
+            throw new IllegalArgumentException(name + " must not be negative, got: " + value);
+        }
         return value;
     }
 
@@ -89,8 +101,9 @@ public final class Guard {
      * @return the value
      */
     public static int inRange(int value, int min, int max, String name) {
-        if (value < min || value > max)
+        if (value < min || value > max) {
             throw new IllegalArgumentException(name + " must be between " + min + " and " + max + ", got: " + value);
+        }
         return value;
     }
 
@@ -99,8 +112,9 @@ public final class Guard {
      * @return the value
      */
     public static long inRange(long value, long min, long max, String name) {
-        if (value < min || value > max)
+        if (value < min || value > max) {
             throw new IllegalArgumentException(name + " must be between " + min + " and " + max + ", got: " + value);
+        }
         return value;
     }
 
@@ -112,14 +126,18 @@ public final class Guard {
      * Throws {@link IllegalStateException} if condition is false.
      */
     public static void state(boolean condition, String message) {
-        if (!condition) throw new IllegalStateException(message);
+        if (!condition) {
+            throw new IllegalStateException(message);
+        }
     }
 
     /**
      * Throws {@link IllegalArgumentException} if condition is false.
      */
     public static void argument(boolean condition, String message) {
-        if (!condition) throw new IllegalArgumentException(message);
+        if (!condition) {
+            throw new IllegalArgumentException(message);
+        }
     }
 
     // =========================================================================

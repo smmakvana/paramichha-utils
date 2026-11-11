@@ -50,15 +50,15 @@ public final class Boundary {
     // =========================================================================
 
     public static StringBoundary notBlank() {
-        return new StringBoundary(StringConstraint.NOT_BLANK, 0, 0, null);
+        return new StringBoundary(StringConstraint.NOT_BLANK, 0, 0);
     }
 
     public static StringBoundary notEmpty() {
-        return new StringBoundary(StringConstraint.NOT_EMPTY, 0, 0, null);
+        return new StringBoundary(StringConstraint.NOT_EMPTY, 0, 0);
     }
 
     public static StringBoundary size(int min, int max) {
-        return new StringBoundary(StringConstraint.SIZE, min, max, null);
+        return new StringBoundary(StringConstraint.SIZE, min, max);
     }
 
     public static StringBoundary length(int min, int max) {
@@ -66,30 +66,31 @@ public final class Boundary {
     }
 
     public static StringBoundary email() {
-        return new StringBoundary(StringConstraint.EMAIL, 0, 0, null);
+        return new StringBoundary(StringConstraint.EMAIL, 0, 0);
     }
 
     public static StringBoundary url() {
-        return new StringBoundary(StringConstraint.URL, 0, 0, null);
+        return new StringBoundary(StringConstraint.URL, 0, 0);
     }
 
     public static StringBoundary pattern(String regexp) {
-        return new StringBoundary(StringConstraint.PATTERN, 0, 0, regexp);
+        return new StringBoundary(StringConstraint.PATTERN, 0, 0);
     }
 
     public static final class StringBoundary {
         private final StringConstraint type;
         private final int min;
         private final int max;
-        private final String regexp;
 
-        private StringBoundary(StringConstraint type, int min, int max, String regexp) {
+        private StringBoundary(StringConstraint type, int min, int max) {
             this.type = type;
             this.min = min;
             this.max = max;
-            this.regexp = regexp;
         }
 
+        /**
+         * Values that satisfy this constraint.
+         */
         public List<String> valid() {
             return switch (type) {
                 case NOT_BLANK -> List.of("a", "hello", "hello world", " hello ");
@@ -101,6 +102,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Values that break this constraint.
+         */
         public List<String> invalid() {
             return switch (type) {
                 case NOT_BLANK -> withNull(List.of("", " ", "   ", "\t", "\n"));
@@ -115,6 +119,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Values on, or right next to, the limits of this constraint.
+         */
         public List<String> edge() {
             return switch (type) {
                 case SIZE -> List.of("a".repeat(min), "a".repeat(min + 1), "a".repeat(max - 1), "a".repeat(max));
@@ -316,6 +323,9 @@ public final class Boundary {
             this.fractionDigits = fractionDigits;
         }
 
+        /**
+         * Values that satisfy this constraint.
+         */
         public List<BigDecimal> valid() {
             return switch (decType) {
                 case MIN -> List.of(min, min.add(BigDecimal.ONE), min.add(new BigDecimal("100")));
@@ -329,6 +339,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Values that break this constraint.
+         */
         public List<BigDecimal> invalid() {
             return switch (decType) {
                 case MIN -> withNull(List.of(min.subtract(new BigDecimal("0.01")), min.subtract(BigDecimal.ONE)));
@@ -342,6 +355,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Values on, or right next to, the limits of this constraint.
+         */
         public List<BigDecimal> edge() {
             return switch (decType) {
                 case MIN -> List.of(min, min.add(new BigDecimal("0.01")));
@@ -380,6 +396,9 @@ public final class Boundary {
         }
 
         // ── LocalDate ─────────────────────────────────────────────────────
+        /**
+         * Dates that satisfy this constraint, relative to today.
+         */
         public List<LocalDate> validDates() {
             return switch (tempType) {
                 case PAST ->
@@ -392,6 +411,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Dates that break this constraint, relative to today.
+         */
         public List<LocalDate> invalidDates() {
             return switch (tempType) {
                 case PAST -> List.of(LocalDate.now(), LocalDate.now().plusDays(1));
@@ -402,6 +424,9 @@ public final class Boundary {
         }
 
         // ── LocalDateTime ─────────────────────────────────────────────────
+        /**
+         * Date-times that satisfy this constraint, relative to now.
+         */
         public List<LocalDateTime> validDateTimes() {
             return switch (tempType) {
                 case PAST ->
@@ -423,6 +448,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Date-times that break this constraint, relative to now.
+         */
         public List<LocalDateTime> invalidDateTimes() {
             return switch (tempType) {
                 case PAST -> List.of(LocalDateTime.now().plusSeconds(1));
@@ -433,6 +461,9 @@ public final class Boundary {
         }
 
         // ── Instant ───────────────────────────────────────────────────────
+        /**
+         * Instants that satisfy this constraint, relative to now.
+         */
         public List<Instant> validInstants() {
             return switch (tempType) {
                 case PAST ->
@@ -446,6 +477,9 @@ public final class Boundary {
             };
         }
 
+        /**
+         * Instants that break this constraint, relative to now.
+         */
         public List<Instant> invalidInstants() {
             return switch (tempType) {
                 case PAST -> List.of(Instant.now().plusSeconds(1));
@@ -475,10 +509,16 @@ public final class Boundary {
             this.expected = expected;
         }
 
+        /**
+         * Values that satisfy this constraint.
+         */
         public List<Boolean> valid() {
             return List.of(expected);
         }
 
+        /**
+         * Values that break this constraint.
+         */
         public List<Boolean> invalid() {
             return withNull(List.of(!expected));
         }
