@@ -2,8 +2,20 @@ package com.paramichha.utils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.time.*;
-import java.util.*;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.OffsetDateTime;
+import java.time.Year;
+import java.time.YearMonth;
+import java.time.ZonedDateTime;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Queue;
+import java.util.Set;
 
 /**
  * Pure Java type inspection utilities.
@@ -87,13 +99,17 @@ public final class JavaTypes {
 
     /** int.class → Integer.class, already boxed types returned as-is. */
     public static Class<?> box(Class<?> type) {
-        if (type == null) return null;
+        if (type == null) {
+            return null;
+        }
         return PRIMITIVE_TO_WRAPPER.getOrDefault(type, type);
     }
 
     /** Integer.class → int.class, already primitive types returned as-is. */
     public static Class<?> unbox(Class<?> type) {
-        if (type == null) return null;
+        if (type == null) {
+            return null;
+        }
         return WRAPPER_TO_PRIMITIVE.getOrDefault(type, type);
     }
 
@@ -171,7 +187,9 @@ public final class JavaTypes {
 
     /** Returns true for types in java.* or jakarta.* packages. */
     public static boolean isJavaType(Class<?> type) {
-        if (type == null) return false;
+        if (type == null) {
+            return false;
+        }
         String pkg = type.getPackageName();
         return pkg.startsWith("java.") || pkg.startsWith("jakarta.");
     }
@@ -197,10 +215,15 @@ public final class JavaTypes {
      * </pre>
      */
     public static String sourceName(Class<?> type) {
-        if (type == null) return "Object";
-        if (type.isArray()) return sourceName(type.getComponentType()) + "[]";
-        if (type.getEnclosingClass() != null)
+        if (type == null) {
+            return "Object";
+        }
+        if (type.isArray()) {
+            return sourceName(type.getComponentType()) + "[]";
+        }
+        if (type.getEnclosingClass() != null) {
             return type.getEnclosingClass().getSimpleName() + "." + type.getSimpleName();
+        }
         return type.getSimpleName();
     }
 
