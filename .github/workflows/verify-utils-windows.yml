@@ -1,0 +1,34 @@
+name: Verify Utils on Windows
+
+on:
+  push:
+    branches: [codex/verify-utils-windows]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    steps:
+      - name: Configure Windows checkout behavior
+        run: |
+          git config --global core.autocrlf true
+          git config --global core.eol crlf
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          repository: smmakvana/paramichha-dev
+          ref: f41c1a772a83a7af54f35ccec8586a4de998f6ea
+          path: build-parent
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Install updated Maven parent
+        run: mvn -B -ntp -f build-parent/pom.xml clean install
+      - name: Verify Utils with Spotless enabled
+        run: |
+          git ls-files --eol '*.java'
+          mvn -B -ntp clean verify "-Dspotless.check.skip=false"
